@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Nguyễn Quang" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="tinh-bn-vng-cua-mang-lui.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Giới thiệu</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cac-tinh-cht-cua-h-phc-hp"><i class="fa fa-check"></i><b>1.1</b> Các tính chất của hệ phức hợp</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#khoa-hoc-h-phc-hp-complex-sicence"><i class="fa fa-check"></i><b>1.2</b> Khoa học Hệ phức hợp (Complex sicence)</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#cac-phuong-phap-nghien-cu-chinh"><i class="fa fa-check"></i><b>1.3</b> Các phương pháp nghiên cứu chính:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="index.html"><a href="index.html#intro"><i class="fa fa-check"></i><b>2</b> Giới thiệu về khoa học mạng lưới</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2.1</b> Các định nghĩa cơ bản</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#inh-nghia-mang-lui"><i class="fa fa-check"></i><b>2.1.1</b> Định nghĩa mạng lưới</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#cac-phep-o-lung-co-ban"><i class="fa fa-check"></i><b>2.2</b> Các phép đo lường cơ bản</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#bc-va-phan-phi-bc"><i class="fa fa-check"></i><b>2.2.1</b> Bậc và phân phối bậc</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#ung-i-va-ung-i-ngn-nht"><i class="fa fa-check"></i><b>2.2.2</b> Đường đi và đường đi ngắn nhất</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#tinh-trung-gian"><i class="fa fa-check"></i><b>2.2.3</b> Tính trung gian</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#tinh-phan-nhom"><i class="fa fa-check"></i><b>2.3</b> Tính phân nhóm</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#cac-mo-hinh-xay-dng-mang-lui-ph-bin-to-be-continued"><i class="fa fa-check"></i><b>2.4</b> Các mô hình xây dựng mạng lưới phổ biến (to be continued)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html"><i class="fa fa-check"></i><b>3</b> Tính bền vững của mạng lưới</a><ul>
+<li class="chapter" data-level="3.1" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#ly-thuyt-thm-thu-percolation"><i class="fa fa-check"></i><b>3.1</b> Lý thuyết thẩm thấu (Percolation)</a></li>
+<li class="chapter" data-level="3.2" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#ap-dung-ly-thuyt-thm-thu-trong-khoa-hoc-mang-lui"><i class="fa fa-check"></i><b>3.2</b> Áp dụng Lý thuyết thẩm thấu trong Khoa học mạng lưới</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tieu-chun-molloy-and-reed"><i class="fa fa-check"></i><b>3.2.1</b> Tiêu chuẩn Molloy and Reed</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tinh-thm-thu-ngu-nhien"><i class="fa fa-check"></i><b>3.2.2</b> Tính thẩm thấu ngẫu nhiên</a></li>
+<li class="chapter" data-level="3.2.3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tinh-thm-thu-co-chu-ich-intentional-attack"><i class="fa fa-check"></i><b>3.2.3</b> Tính thẩm thấu có chủ đích (“intentional attack”)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#mo-phong-tinh-bn-vng-cua-cac-h-phc-hp"><i class="fa fa-check"></i><b>3.3</b> Mô phỏng tính bền vững của các Hệ phức hợp</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><i class="fa fa-check"></i><b>4</b> Các mô hình lan truyền và phòng ngừa dịch bệnh</a><ul>
+<li class="chapter" data-level="4.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-lan-truyn"><i class="fa fa-check"></i><b>4.1</b> Các mô hình lan truyền</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-c-in"><i class="fa fa-check"></i><b>4.1.1</b> Mô hình lan truyền cổ điển:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-theo-mang-lui"><i class="fa fa-check"></i><b>4.1.2</b> Mô hình lan truyền theo mạng lưới:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-phuong-phap-mo-phong"><i class="fa fa-check"></i><b>4.1.3</b> Các phương pháp mô phỏng:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-phong-nga"><i class="fa fa-check"></i><b>4.2</b> Các mô hình phòng ngừa</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-tiem-nga-immunization-model"><i class="fa fa-check"></i><b>4.2.1</b> Mô hình tiêm ngừa (immunization model)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-cach-ly-xa-hi"><i class="fa fa-check"></i><b>4.2.2</b> Mô hình cách ly xã hội</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#tham-khao"><i class="fa fa-check"></i><b>4.3</b> Tham khảo:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Giới thiệu về khoa học mạng lưới</h1>
+<div id="cac-inh-nghia-co-ban" class="section level2">
+<h2><span class="header-section-number">2.1</span> Các định nghĩa cơ bản</h2>
+<div id="inh-nghia-mang-lui" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Định nghĩa mạng lưới</h3>
+<p>Một mạng lưới là một đồ thị toán học ký hiệu bởi <span class="math inline">\(G = G(E,V)\)</span> bao gồm: - Một tập hợp các đỉnh (“vertex/node”) <span class="math inline">\(V\)</span> - Một tập hợp các cạnh (“edge/link”): <span class="math inline">\(E\)</span> gồm những cặp đỉnh trong <span class="math inline">\(V\)</span></p>
+<p>Ví dụ sau biểu diễn một đồ thị gồm 5 đỉnh và 7 cạnh:</p>
+<ul>
+<li><p><span class="math inline">\(V = {1, 2, 3, 4, 5}\)</span></p></li>
+<li><p><span class="math inline">\(E = {(1, 2), (2, 3), (3, 1), (3, 4)}\)</span> <img src="ComplexNetwork_files/figure-html/graph1-1.png" width="672" /></p></li>
+</ul>
+<p>Các đỉnh thường được ký hiệu bởi số nguyên từ <span class="math inline">\(1\)</span> đến <span class="math inline">\(n\)</span>: <span class="math inline">\(1,2,...,n\)</span>. Tập hợp cạnh <span class="math inline">\(E\)</span> còn được gọi là danh sách cạnh.</p>
+<p>Có thể biểu diễn mạng lưới theo một cách khác là ma trận kề <span class="math inline">\(A\)</span> có chiều <span class="math inline">\(n \times n\)</span>. Như với đồ thị trên chúng ta có:</p>
+<span class="math display">\[\begin{Bmatrix}
+    0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
+    1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+    1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+    0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{Bmatrix}\]</span>
+<p>Với các giá trị <span class="math inline">\(a_{ij}\)</span> bằng 1 nếu có tồn tại một cạnh giữa <span class="math inline">\(i\)</span> và <span class="math inline">\(j\)</span> và bằng 0 nếu không.</p>
+<ul>
+<li><p>Mạng lưới có thể có hướng (“directed”), khi đó cạnh <span class="math inline">\((i,j)\)</span> được coi là đi từ đỉnh <span class="math inline">\(i\)</span> tới đỉnh <span class="math inline">\(j\)</span>, nếu không thì gọi là không hướng.</p></li>
+<li><p>Có thể có cạnh đi từ một đỉnh tới chính nó (“self-edge”).</p></li>
+<li><p>Có thể có nhiều cạnh giữa 2 đỉnh (“multiedges”), khi đó giá trị <span class="math inline">\(a_{ij}\)</span> là số nguyên bằng số cạnh giữa 2 đỉnh.</p></li>
+<li><p>Một nhóm mạng lưới quan trọng khác là <strong>mạng có trong số</strong> (“weighted network”). Khi đó mỗi cạnh đều có một giá trị không âm và các giá trị <span class="math inline">\(a_{ij}\)</span> của ma trận kề có cùng giá trị với trọng số tương ứng của cạnh.</p></li>
+<li><p>Mạng lưới có tồn tại cạnh nối 2 đỉnh bất kỳ gọi là <strong>mạng đầy đủ</strong> (“complete graph”)</p></li>
+</ul>
+</div>
+</div>
+<div id="cac-phep-o-lung-co-ban" class="section level2">
+<h2><span class="header-section-number">2.2</span> Các phép đo lường cơ bản</h2>
+<p>Dựa trên cấu trúc mạng lưới chúng ta có thể tính toán các phép đo cho đỉnh, cạnh hay toàn mạng lưới.</p>
+<div id="bc-va-phan-phi-bc" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Bậc và phân phối bậc</h3>
+<p>Bậc (“degree”) của một đỉnh <span class="math inline">\(i\)</span>, ký hiệu <span class="math inline">\(k_i\)</span>, là tổng số cạnh đi tới nó. Với một mạng không hướng thì có thể tính bậc mỗi đỉnh bởi tổng của hàng <span class="math inline">\(i\)</span> tương ứng của ma trận kề <span class="math inline">\(A\)</span>: <span class="math inline">\(k_i = \sum_{j = 1}^{n}a_{ij}\)</span>.</p>
+<p>Cũng với mạng không hướng, nếu có <span class="math inline">\(m\)</span> cạnh thì tổng số bậc của tất cả các đỉnh sẽ là <span class="math inline">\(2m\)</span>. Ví dụ như với mạng 500 sân bay lớn nhất của Mỹ trong hình <a href="#eq:USairport">(<strong>??</strong>)</a> ta có các thông số sau:</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Measure
+</th>
+<th style="text-align:right;">
+Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Số đỉnh
+</td>
+<td style="text-align:right;">
+500.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Số cạnh
+</td>
+<td style="text-align:right;">
+2980.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Bậc TB
+</td>
+<td style="text-align:right;">
+5.96
+</td>
+</tr>
+</tbody>
+</table>
+<p>Như vậy một sân bay trung bình chỉ có gần 6 đường bay nội địa? Con số trung bình này không phản ánh rõ bởi ở Mỹ có rất nhiều sân bay nhỏ chỉ kết nối với một vài sân bay chính gần đó. Có đến 74 sân bay chỉ kết nối duy nhất 1 sân bay khác (trong số 500 sân bay lớn), 107 sân bay kết nối với 2 sân bay khác, và sân bay kết nối nhiều nhất có 146 đường bay khác nhau, như thể hiện qua đồ thị tần số (histogram) dưới đây.</p>
+<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Chúng ta có thể thấy các mạng thực tế thường có phân bố bậc rất rộng và không đối xứng, với rất nhiều đỉnh có số bậc nhỏ và một số ít đỉnh có số bậc rất lớn. Các dữ liệu thực nghiệm cho thấy phần lớn các phân phối này có dạng hàm mũ ở phần đuôi, với số mũ từ thông thường từ 2-3.</p>
+<div class="figure" style="text-align: center">
+<img src="images/USAirport_500_deg.png" alt="Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác" width="80%" />
+<p class="caption">
+(#fig:USAirport_500_deg)Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác
+</p>
+</div>
+</div>
+<div id="ung-i-va-ung-i-ngn-nht" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Đường đi và đường đi ngắn nhất</h3>
+<p>Đường đi (“path”) giữa hai đỉnh <span class="math inline">\(i\)</span> và <span class="math inline">\(j\)</span> là tập hợp các cạnh nối từ <span class="math inline">\(i\)</span> tới <span class="math inline">\(j\)</span>. Giữa hai đỉnh bất kỳ có thể không tồn tại đường đi, hoặc tồn tại nhiều đường đi.</p>
+<p>Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ) là 2 cạnh màu xanh nước biển, đi qua một sân bay khác màu xanh lá cây:</p>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="ComplexNetwork_files/figure-html/unnamed-chunk-4-1.png" alt="Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)" width="672" />
+<p class="caption">
+Figure 2.1: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)
+</p>
+</div>
+<ul>
+<li><strong>Đường đi ngắn nhất trung bình</strong> là trung bình của mọi đường đi ngăn nhất giữa hai đỉnh (nếu có). Đây là một phép đo quan trọng thể hiện sự kết nối. Với mạng 500 sân bay Mỹ là 2.9896902 hay gần 3, có nghĩa là trung bình để đi từ hai sân bay bất kỳ trên đất Mỹ cần đi 3 chuyến bay.</li>
+</ul>
+<p>Một hiện tượng nổi tiếng “Six degrees of separation” phát hiện bởi Frigyes Karinthy, viết lại bởi John Guare chỉ ra hai người bất kỳ trong xã hội có thể kết nối với nhau chỉ qua trung bình 6 người trung gian khác (xem <a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">Wikipedia</a>). Đây là một con số nhỏ ngạc nhiên vào thời trước, và được mô tả thành hiện tượng <strong>thế giới nhỏ</strong> (“the small-world effect”).</p>
+<p>Trong một ví dụ khác, chúng ta có mạng lưới cộng tác xuất bản chung của các nhà khoa học mạng lưới vào năm 2006. Mạng lưới bao gồm 1589 nhà khoa học, trong đó thành phần lớn nhất liên kết 379 nhà khoa học:</p>
+<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-5-1.png" width="672" /> (chỉ những NKH có trên 15 liên kết mới hiển thị tên)</p>
+<p>Với mạng lưới này, Đường đi ngắn nhất trung bình là 6.0418673 hay nói cách khác, nếu ở trong mạng lưới này, bạn muốn liên kết với bất kỳ NKH nào khác qua các quen biết (đã xuất bản chung) thì trung bình cần đến 6 đường đi (hay 5 NKH giới thiệu).</p>
+<p>Một số phép đó khác liên quan đến đường đi và đường đi ngắn nhất bao gồm:</p>
+<ul>
+<li><p><strong>chiều</strong> của mạng lưới là giá trị lớn nhất của tất cả các đường đi ngắn nhất. Với mạng 500 sân bay Mỹ là 7.</p></li>
+<li><p>Mạng lưới mà luôn tồn tại ít nhất một đường đi giữa hai đỉnh bất kỳ gọi là <strong>mạng kết nối</strong>. Mạng này không chứa đỉnh cô lập.</p></li>
+<li><p>Một mạng lưới không kết nối có thể chia thành nhiều mạng kết nối rời rạc với nhau. Các mạng con kết nối này được gọi là các <strong>thành phần</strong> (“components”) của mạng ban đầu.</p></li>
+<li><p>Thành phần có kích thước lớn nhất của một mạng lưới gọi là <strong>LCC</strong> (“Largest connected components”). (Với mạng kết nối thì LCC chính là mạng lưới)</p></li>
+</ul>
+</div>
+<div id="tinh-trung-gian" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Tính trung gian</h3>
+<p>Dựa trên đường đi ngăn nhất, tính trung gian (“betweenness”) của một đỉnh <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> là tổng số đường đi ngăn nhất giữa hai đỉnh khác <span class="math inline">\(i\)</span> mà đi qua <span class="math inline">\(i\)</span>. Tính trung gian là một phép đo rất quan trọng của mỗi đỉnh. Đỉnh có tính trung gian cao thường đóng vai trò kết nối cao trong một mạng lưới.</p>
+<p>Hình vẽ dưới đây biểu diễn kích thước mỗi đỉnh bằng tính trung gian cho đồ thị 34 thành viên một câu lạc bộ karate do Wayne Zachary thu thập năm 1977 (một bộ dữ liệu rất phổ biến trong nghiên cứu mạng lưới trước đây):</p>
+<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-6-1.png" width="672" /> Có thể thấy ngoài các đỉnh trung tâm có số liên kết cao cũng có tính trung gian cao, một số đỉnh ở vùng tiếp giáp giữa các nhóm cũng có tính trung gian cao, mặc dù số bậc không quá cao.</p>
+<p>Với mạng có trọng số, mỗi đường đi ngắn nhất được tính theo trong số và tính trung gian trọng số là tổng giá trị của các đường đi ngắn nhất đi qua đỉnh.</p>
+</div>
+</div>
+<div id="tinh-phan-nhom" class="section level2">
+<h2><span class="header-section-number">2.3</span> Tính phân nhóm</h2>
+<p>Ngoài các tính chất đã kể trên của mạng lưới là 1) phân bố bậc dạng hàm mũ và 2) tính chất “small-world”, các mạng thực tế thường có sự phân nhóm ít nhiều khác nhau, đặc biệt là các mạng xã hội.</p>
+<p>Ví dụ sau là sự phân nhóm theo thuật toán “greedy optimization” trên mạng lưới 379 nhà khoa học nói trên:</p>
+<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-7-1.png" width="672" /> Xác định nhóm trong mạng là một trong những bài toán quan trọng và có nhiều cách tiếp cận khác nhau. Tính phân nhóm ảnh hưởng quan trọng đến các quá trình động lực sau này của mạng lưới.</p>
+</div>
+<div id="cac-mo-hinh-xay-dng-mang-lui-ph-bin-to-be-continued" class="section level2">
+<h2><span class="header-section-number">2.4</span> Các mô hình xây dựng mạng lưới phổ biến (to be continued)</h2>
+<p><strong>Tài liệu Tham khảo:</strong> W. W. Zachary, An information flow model for conflict and fission in small groups, Journal of Anthropological Research 33, 452-473 (1977).</p>
+<p>M. E. J. Newman, Finding community structure in networks using the eigenvectors of matrices, Preprint physics/0605087 (2006).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tinh-bn-vng-cua-mang-lui.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["ComplexNetwork.pdf", "ComplexNetwork.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"toc_depth": 4
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

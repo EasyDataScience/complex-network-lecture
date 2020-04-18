@@ -1,7 +1,7 @@
 --- 
 title: "Giới thiệu về Hệ phức hợp và Khoa học mạng lưới"
 author: "Nguyễn Quang"
-date: "`r Sys.Date()`"
+date: "April 2020"
 output:
   html_document:
     df_print: paged

@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Các mô hình lan truyền và phòng ngừa dịch bệnh
 ## Các mô hình lan truyền
 ### Mô hình lan truyền cổ điển:
