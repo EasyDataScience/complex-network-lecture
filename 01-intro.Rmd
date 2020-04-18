@@ -1,0 +1,249 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Giới thiệu về khoa học mạng lưới {#intro}
+
+## Các định nghĩa cơ bản
+
+### Định nghĩa mạng lưới
+Một mạng lưới là một đồ thị toán học ký hiệu bởi $G = G(E,V)$ bao gồm:
+- Một tập hợp các đỉnh ("vertex/node") $V$
+- Một tập hợp các cạnh ("edge/link"): $E$ gồm những cặp đỉnh trong $V$
+
+Ví dụ sau biểu diễn một đồ thị gồm 5 đỉnh và 7 cạnh:
+
+- $V = {1, 2, 3, 4, 5}$
+
+- $E = {(1, 2), (2, 3), (3, 1), (3, 4)}$
+```{r graph1, echo = FALSE, message = FALSE, warning = FALSE}
+library(igraph)
+#V <- c(1,2,3,4,5)
+g1 <- graph( edges=c(1,2, 2,3, 3,1, 3,4), n=5, directed=F )
+E <- get.edgelist(g1)
+#print(V(g1))
+plot(g1, vertex.size = 20.0,vertex.label.cex = 1.,
+     vertex.label.dist = 3, edge.width = 2) 
+
+```
+
+Các đỉnh thường được ký hiệu bởi số nguyên từ $1$ đến $n$: $1,2,...,n$. Tập hợp cạnh $E$ còn được gọi là danh sách cạnh. 
+
+Có thể biểu diễn mạng lưới theo một cách khác là ma trận kề $A$ có chiều $n \times n$. Như với đồ thị trên chúng ta có:
+
+\begin{Bmatrix}
+    0 & 1 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 0 & 0 \\
+    1 & 1 & 0 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 \\
+\end{Bmatrix}
+
+
+Với các giá trị $a_{ij}$ bằng 1 nếu có tồn tại một cạnh giữa $i$ và $j$ và bằng 0 nếu không. 
+
+- Mạng lưới có thể có hướng ("directed"), khi đó  cạnh $(i,j)$ được coi là đi từ đỉnh $i$ tới đỉnh $j$, nếu không thì gọi là không hướng.
+
+- Có thể có cạnh đi từ một đỉnh tới chính nó ("self-edge").
+
+- Có thể có nhiều cạnh giữa 2 đỉnh ("multiedges"), khi đó giá trị $a_{ij}$ là số nguyên bằng số cạnh giữa 2 đỉnh.
+
+- Một nhóm mạng lưới quan trọng khác là **mạng có trong số** ("weighted network"). Khi đó mỗi cạnh đều có một giá trị không âm và các giá trị $a_{ij}$ của ma trận kề có cùng giá trị với trọng số tương ứng của cạnh.
+
+- Mạng lưới có tồn tại cạnh nối 2 đỉnh bất kỳ gọi là **mạng đầy đủ** ("complete graph")
+
+## Các phép đo lường cơ bản
+Dựa trên cấu trúc mạng lưới chúng ta có thể tính toán các phép đo cho đỉnh, cạnh hay toàn mạng lưới.
+
+### Bậc và phân phối bậc
+Bậc ("degree") của một đỉnh $i$, ký hiệu $k_i$, là tổng số cạnh đi tới nó. Với một mạng không hướng thì có thể tính bậc mỗi đỉnh bởi tổng của hàng $i$ tương ứng của ma trận kề $A$: $k_i = \sum_{j = 1}^{n}a_{ij}$.
+
+Cũng với mạng không hướng, nếu có $m$ cạnh thì tổng số bậc của tất cả các đỉnh sẽ là $2m$. Ví dụ như với mạng 500 sân bay lớn nhất của Mỹ trong hình \@ref(eq:USairport) ta có các thông số sau:
+
+```{r echo = FALSE}
+library(knitr)
+library(kableExtra)
+text_tbl <- data.frame(
+  Measure = c("Số đỉnh", "Số cạnh", "Bậc TB"),
+  Value = c(500, 2980, 5.96)
+)
+kable(text_tbl) %>%
+  kable_styling(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T)
+```
+
+Như vậy một sân bay trung bình chỉ có gần 6 đường bay nội địa? Con số trung bình này không phản ánh rõ bởi ở Mỹ có rất nhiều sân bay nhỏ chỉ kết nối với một vài sân bay chính gần đó. Có đến 74 sân bay chỉ kết nối duy nhất 1 sân bay khác (trong số 500 sân bay lớn), 107 sân bay kết nối với 2 sân bay khác, và sân bay kết nối nhiều nhất có 146 đường bay khác nhau, như thể hiện qua đồ thị tần số (histogram) dưới đây.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+tmp <- read.table('dataset/US_500airports.txt', header = FALSE) # change 0 to max+1
+temp <- max(max(tmp$V1),max(tmp$V2))
+tmp$V1 <- ifelse(tmp$V1 == 0, temp,tmp$V1)
+tmp$V2 <- ifelse(tmp$V2 == 0, temp,tmp$V2)
+g <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+g_binary <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+# Set weight
+g <- set.edge.attribute(g, "weight", value=tmp[,3]) 
+deg <- degree(g)
+hist(deg,250)
+```
+
+Chúng ta có thể thấy các mạng thực tế thường có phân bố bậc rất rộng và không đối xứng, với rất nhiều đỉnh có số bậc nhỏ và một số ít đỉnh có số bậc rất lớn. Các dữ liệu thực nghiệm cho thấy phần lớn các phân phối này có dạng hàm mũ ở phần đuôi, với số mũ từ thông thường từ 2-3.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, include = FALSE}
+plot_power <- function(x,k){
+  temp <- hist(x,k)
+  plot(temp$mids,temp$counts, log='xy',
+       xlab = "Số bậc", ylab = "Tần số")
+  degree = temp$mid
+  probability = temp$counts
+  # delete blank values
+  nonzero.position = which(probability != 0)
+  probability = probability[nonzero.position]
+  degree = degree[nonzero.position]
+  # delete blank values
+  reg = lm(log(probability[4:8]) ~ log(degree[4:8]))
+  cozf = coef(reg)
+  alpha = -cozf[[2]]
+  print(paste("Alpha =", round(alpha, 3)))
+}
+plot_power(deg,10)
+```
+
+```{r USAirport_500_deg, fig.align = 'center', out.width = "80%", fig.cap = "Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác", echo = FALSE}
+knitr::include_graphics("images/USAirport_500_deg.png")
+```
+
+### Đường đi và đường đi ngắn nhất
+
+Đường đi ("path") giữa hai đỉnh $i$ và $j$ là tập hợp các cạnh nối từ $i$ tới $j$. Giữa hai đỉnh bất kỳ có thể không tồn tại đường đi, hoặc tồn tại nhiều đường đi.
+
+Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ) là 2 cạnh màu xanh nước biển, đi qua một sân bay khác màu xanh lá cây:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE,fig.cap = "Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)"}
+v1 <- V(g)[225]
+v2 <- V(g)[120]
+v3 <- V(g)[499]
+short.path<-shortest_paths(g, from = v1, to = v2, output = "both")
+#short.path
+ecol <- rep("gray80", ecount(g)) ##creating a color vector for all the edges with the color "grey50"; the ecount fucntion tells you how many edges the network has
+ecol[unlist(short.path$epath)] <- "blue"
+esize <- rep(0.5, ecount(g))
+esize[unlist(short.path$epath)] <- 4
+vcol <- rep("black", vcount(g))
+vcol[which(V(g)==v1)] <- "red"
+vcol[which(V(g)==v2)] <- "red"
+vcol[which(V(g)==v3)] <- "green"
+vsize <- rep(1.5, vcount(g))
+vsize[which(V(g)==v1)] <- 4
+vsize[which(V(g)==v2)] <- 4
+vsize[which(V(g)==v3)] <- 6
+
+#l<-layout_with_dh(g) # Very long - 3m
+l2 <- layout_with_kk(g)
+plot(g, vertex.label=NA,
+     vertex.size=vsize,vertex.frame.color = NA,
+     vertex.color = vcol,
+     edge.width=esize, 
+     edge.color=ecol,
+     layout=l2)
+
+```
+
+- **Đường đi ngắn nhất trung bình** là trung bình của mọi đường đi ngăn nhất giữa hai đỉnh (nếu có). Đây là một phép đo quan trọng thể hiện sự kết nối. Với mạng 500 sân bay Mỹ là `r average.path.length(g, directed=FALSE, unconnected=TRUE)` hay gần 3, có nghĩa là trung bình để đi từ hai sân bay bất kỳ trên đất Mỹ cần đi 3 chuyến bay. 
+
+Một hiện tượng nổi tiếng "Six degrees of separation" phát hiện bởi Frigyes Karinthy, viết lại bởi John Guare chỉ ra hai người bất kỳ trong xã hội có thể kết nối với nhau chỉ qua trung bình 6 người trung gian khác (xem [Wikipedia](https://en.wikipedia.org/wiki/Six_degrees_of_separation)). Đây là một con số nhỏ ngạc nhiên vào thời trước, và được mô tả thành hiện tượng __thế giới nhỏ__ ("the small-world effect").
+
+Trong một ví dụ khác, chúng ta có mạng lưới cộng tác xuất bản chung của các nhà khoa học mạng lưới vào năm 2006. Mạng lưới bao gồm 1589 nhà khoa học, trong đó thành phần lớn nhất liên kết 379 nhà khoa học:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library("multiplex")
+library("igraph")
+file <- "/Volumes/P/DATA/NETWORK/ca-netscience/netscience.gml"
+tmp <- read.gml(file, as = c("srt"), directed = FALSE, coords = FALSE)
+g <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+# Set weight
+g <- set.edge.attribute(g, "weight", value=tmp[,3]) 
+components <- components(g, mode = c("weak", "strong"))
+g <- delete.vertices(g, components$membership!=which.max(components$csize))
+deg <- degree(g)
+vlsize <- V(g)$name
+vlsize[deg <= 15] <- NA
+l<-layout_with_fr(g)
+plot(g, edge.arrow.size=E(g)$weight, edge.curved=0,
+     vertex.size=3,vertex.frame.color = NA,
+     vertex.color="orange",
+     vertex.label=vlsize, vertex.label.color="black",
+     vertex.label.size = 0.5, vertex.label.cex=.5) 
+```
+(chỉ những NKH có trên 15 liên kết mới hiển thị tên)
+
+Với mạng lưới này, Đường đi ngắn nhất trung bình là `r average.path.length(g, directed=FALSE, unconnected=TRUE)` hay nói cách khác, nếu ở trong mạng lưới này, bạn muốn liên kết với bất kỳ NKH nào khác qua các quen biết (đã xuất bản chung) thì trung bình cần đến 6 đường đi (hay 5 NKH giới thiệu).
+
+Một số phép đó khác liên quan đến đường đi và đường đi ngắn nhất bao gồm:
+
+- **chiều** của mạng lưới là giá trị lớn nhất của tất cả các đường đi ngắn nhất. Với mạng 500 sân bay Mỹ là `r diameter(g_binary)`.
+
+- Mạng lưới mà luôn tồn tại ít nhất một đường đi giữa hai đỉnh bất kỳ gọi là **mạng kết nối**. Mạng này không chứa đỉnh cô lập.
+
+- Một mạng lưới không kết nối có thể chia thành nhiều mạng kết nối rời rạc với nhau. Các mạng con kết nối này được gọi là các **thành phần** ("components") của mạng ban đầu.
+
+- Thành phần có kích thước lớn nhất của một mạng lưới gọi là **LCC** ("Largest connected components"). (Với mạng kết nối thì LCC chính là mạng lưới)
+
+### Tính trung gian
+Dựa trên đường đi ngăn nhất, tính trung gian ("betweenness") của một đỉnh $i$, $b_i$ là tổng số đường đi ngăn nhất giữa hai đỉnh khác $i$ mà đi qua $i$. Tính trung gian là một phép đo rất quan trọng của mỗi đỉnh. Đỉnh có tính trung gian cao thường đóng vai trò kết nối cao trong một mạng lưới.
+
+Hình vẽ dưới đây biểu diễn kích thước mỗi đỉnh bằng tính trung gian cho đồ thị 34 thành viên một câu lạc bộ karate do Wayne Zachary thu thập năm 1977 (một bộ dữ liệu rất phổ biến trong nghiên cứu mạng lưới trước đây):
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library("multiplex")
+library("igraph")
+file <- "/Volumes/P/DATA/NETWORK/karate/karate.gml"
+tmp <- read.gml(file, as = c("srt"), directed = FALSE, coords = FALSE)
+g <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+components <- components(g, mode = c("weak", "strong"))
+g <- delete.vertices(g, components$membership!=which.max(components$csize))
+g <- simplify(g, remove.multiple = TRUE)
+bet <- betweenness(g)
+bet <- log(bet+0.01)
+l<-layout_with_fr(g)
+plot(g, vertex.size=round(bet-min(bet)),vertex.frame.color = "black",
+     vertex.color=adjustcolor("SkyBlue2", alpha.f = .5),
+     vertex.label.dist=1, vertex.label.cex= .8) 
+```
+Có thể thấy ngoài các đỉnh trung tâm có số liên kết cao cũng có tính trung gian cao, một số đỉnh ở vùng tiếp giáp giữa các nhóm cũng có tính trung gian cao, mặc dù số bậc không quá cao.
+
+Với mạng có trọng số, mỗi đường đi ngắn nhất được tính theo trong số và tính trung gian trọng số là tổng giá trị của các đường đi ngắn nhất đi qua đỉnh.
+
+## Tính phân nhóm
+Ngoài các tính chất đã kể trên của mạng lưới là 1) phân bố bậc dạng hàm mũ và 2) tính chất "small-world", các mạng thực tế thường có sự phân nhóm ít nhiều khác nhau, đặc biệt là các mạng xã hội. 
+
+Ví dụ sau là sự phân nhóm theo thuật toán "greedy optimization" trên mạng lưới 379 nhà khoa học nói trên:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library("multiplex")
+library("igraph")
+file <- "/Volumes/P/DATA/NETWORK/karate/karate.gml"
+tmp <- read.gml(file, as = c("srt"), directed = FALSE, coords = FALSE)
+g <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+# Set weight
+g <- set.edge.attribute(g, "weight", value=tmp[,3]) 
+components <- components(g, mode = c("weak", "strong"))
+g <- delete.vertices(g, components$membership!=which.max(components$csize))
+g <- simplify(g, remove.multiple = TRUE)
+cfg <- cluster_fast_greedy(as.undirected(g))
+plot(cfg, as.undirected(g), edge.arrow.size=E(g)$weight, edge.curved=0,
+     vertex.size=3,vertex.frame.color = NA,
+     vertex.color="orange",
+     vertex.label.color="black",
+     vertex.label.dist = 1, vertex.label.cex=.8)
+```
+Xác định nhóm trong mạng là một trong những bài toán quan trọng và có nhiều cách tiếp cận khác nhau. Tính phân nhóm ảnh hưởng quan trọng đến các quá trình động lực sau này của mạng lưới.
+
+## Các mô hình xây dựng mạng lưới phổ biến (to be continued)
+
+**Tài liệu Tham khảo:**
+W. W. Zachary, An information flow model for conflict and fission in small groups, Journal of Anthropological Research 33, 452-473 (1977).
+
+M. E. J. Newman, Finding community structure in networks using the eigenvectors of matrices, Preprint physics/0605087 (2006).
+

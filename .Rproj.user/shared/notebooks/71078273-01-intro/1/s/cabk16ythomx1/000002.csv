@@ -1,0 +1,33 @@
+"0","library(knitr)"
+"0","library(kableExtra)"
+"0","text_tbl <- data.frame("
+"0","  Measure = c(""Số đỉnh"", ""Số cạnh"", ""Bậc TB""),"
+"0","  Value = c(500, 2980, 5.96)"
+"0",")"
+"0","kable(text_tbl) %>%"
+"0","  kable_styling(full_width = F) %>%"
+"0","  column_spec(1, bold = T, border_right = T)"
+"1","<table class=""table"" style=""width: auto !important; margin-left: auto; margin-right: auto;"">
+ <thead>
+  <tr>
+   <th style=""text-align:left;""> Measure </th>
+   <th style=""text-align:right;""> Value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style=""text-align:left;font-weight: bold;border-right:1px solid;""> Số đỉnh </td>
+   <td style=""text-align:right;""> 500.00 </td>
+  </tr>
+  <tr>
+   <td style=""text-align:left;font-weight: bold;border-right:1px solid;""> Số cạnh </td>
+   <td style=""text-align:right;""> 2980.00 </td>
+  </tr>
+  <tr>
+   <td style=""text-align:left;font-weight: bold;border-right:1px solid;""> Bậc TB </td>
+   <td style=""text-align:right;""> 5.96 </td>
+  </tr>
+</tbody>
+</table>"
+"1","
+"

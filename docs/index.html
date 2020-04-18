@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Nguyễn Quang" />
+
+
+<meta name="date" content="2020-04-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="intro.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Giới thiệu</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cac-tinh-cht-cua-h-phc-hp"><i class="fa fa-check"></i><b>1.1</b> Các tính chất của hệ phức hợp</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#khoa-hoc-h-phc-hp-complex-sicence"><i class="fa fa-check"></i><b>1.2</b> Khoa học Hệ phức hợp (Complex sicence)</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#cac-phuong-phap-nghien-cu-chinh"><i class="fa fa-check"></i><b>1.3</b> Các phương pháp nghiên cứu chính:</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#tham-khao"><i class="fa fa-check"></i><b>1.3.1</b> Tham khảo:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="index.html"><a href="index.html#intro"><i class="fa fa-check"></i><b>2</b> Giới thiệu về khoa học mạng lưới</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2.1</b> Các định nghĩa cơ bản</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#inh-nghia-mang-lui"><i class="fa fa-check"></i><b>2.1.1</b> Định nghĩa mạng lưới</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#cac-phep-o-lung-co-ban"><i class="fa fa-check"></i><b>2.2</b> Các phép đo lường cơ bản</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#bc-va-phan-phi-bc"><i class="fa fa-check"></i><b>2.2.1</b> Bậc và phân phối bậc</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#ung-i-va-ung-i-ngn-nht"><i class="fa fa-check"></i><b>2.2.2</b> Đường đi và đường đi ngắn nhất</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#tinh-trung-gian"><i class="fa fa-check"></i><b>2.2.3</b> Tính trung gian</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#tinh-phan-nhom"><i class="fa fa-check"></i><b>2.3</b> Tính phân nhóm</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#cac-mo-hinh-xay-dng-mang-lui-ph-bin-to-be-continued"><i class="fa fa-check"></i><b>2.4</b> Các mô hình xây dựng mạng lưới phổ biến (to be continued)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html"><i class="fa fa-check"></i><b>3</b> Tính bền vững của mạng lưới</a><ul>
+<li class="chapter" data-level="3.1" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#ly-thuyt-thm-thu-percolation"><i class="fa fa-check"></i><b>3.1</b> Lý thuyết thẩm thấu (Percolation)</a></li>
+<li class="chapter" data-level="3.2" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#ap-dung-ly-thuyt-thm-thu-trong-khoa-hoc-mang-lui"><i class="fa fa-check"></i><b>3.2</b> Áp dụng Lý thuyết thẩm thấu trong Khoa học mạng lưới</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tieu-chun-molloy-and-reed"><i class="fa fa-check"></i><b>3.2.1</b> Tiêu chuẩn Molloy and Reed</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tinh-thm-thu-ngu-nhien"><i class="fa fa-check"></i><b>3.2.2</b> Tính thẩm thấu ngẫu nhiên</a></li>
+<li class="chapter" data-level="3.2.3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#tinh-thm-thu-co-chu-ich-intentional-attack"><i class="fa fa-check"></i><b>3.2.3</b> Tính thẩm thấu có chủ đích (“intentional attack”)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tinh-bn-vng-cua-mang-lui.html"><a href="tinh-bn-vng-cua-mang-lui.html#mo-phong-tinh-bn-vng-cua-cac-h-phc-hp"><i class="fa fa-check"></i><b>3.3</b> Mô phỏng tính bền vững của các Hệ phức hợp</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><i class="fa fa-check"></i><b>4</b> Các mô hình lan truyền và phòng ngừa dịch bệnh</a><ul>
+<li class="chapter" data-level="4.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-lan-truyn"><i class="fa fa-check"></i><b>4.1</b> Các mô hình lan truyền</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-c-in"><i class="fa fa-check"></i><b>4.1.1</b> Mô hình lan truyền cổ điển:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-theo-mang-lui"><i class="fa fa-check"></i><b>4.1.2</b> Mô hình lan truyền theo mạng lưới:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-phuong-phap-mo-phong"><i class="fa fa-check"></i><b>4.1.3</b> Các phương pháp mô phỏng:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-phong-nga"><i class="fa fa-check"></i><b>4.2</b> Các mô hình phòng ngừa</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-tiem-nga-immunization-model"><i class="fa fa-check"></i><b>4.2.1</b> Mô hình tiêm ngừa (immunization model)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-cach-ly-xa-hi"><i class="fa fa-check"></i><b>4.2.2</b> Mô hình cách ly xã hội</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#tham-khao-1"><i class="fa fa-check"></i><b>4.3</b> Tham khảo:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</h1>
+<p class="author"><em>Nguyễn Quang</em></p>
+<p class="date"><em>2020-04-18</em></p>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Giới thiệu</h1>
+<p>Stephen Hawking đã từng nói trong thế kỷ trước “I think the next [21st] century will be the century of complexity. We have already discovered the basic laws] that govern matter and understand all the normal situations. We don’t know how the laws fit together, and what happens under extreme conditions. But I expect we will find a complete unified theory sometime this century. There is no limit to the complexity that we can build using those basic laws.” <a href="https://en.wikiquote.org/wiki/Complexity">nguồn</a> Tạm dịch là:</p>
+<p>Tôi cho rằng thế kỷ tới (21) sẽ là thế kỷ của hệ phức hợp. Chúng ta đã khám phá ra các định luật cơ bản chi phối vật chất và thông hiểu mọi hiện tượng thông thường, nhưng lại không hiểu các định luật đó tương thích với nhau như thế nào và điều gì sẽ xảy ra ở những thời điểm cực điểm? Tôi kỳ vọng là chúng ta sẽ tìm ra một lý thuyết thống nhất hoàn chỉnh trong thế kỷ tới. Với lý thuyết đó chúng ta có thể xây dựng những thứ có độ phức tạp vô hạn.</p>
+<p>Hệ phức hợp được định nghĩa là một hệ thống gồm <strong>rất nhiều</strong> phần tử tương tác chặt chẽ với nhau, có tính chất tự tổ chức (self-organized) và khả năng biến đổi tiến hóa (adapt) trong môi trường.</p>
+<p>Thông thường các phần tử của hệ phức hợp có tính chất đơn giản. Chính sự tương tác tạo ra tính “phức hợp”&quot; của nó. Do vậy, tính <strong>rất nhiều</strong> phần tử là một đặc điểm tiên quyết bởi vi tính chất của một tập hợp rất nhiều phần tử <strong>không phải</strong> bằng tổng tính chất của từng phần tử đơn lẻ.</p>
+<p>Có thể lấy ví dụ về hệ phức hợp như hệ sinh thái, một nền kinh tế, mạng Internet, mạng xã hội, mạng truyền tải điện, mạng giao thông, hệ địa chất, hệ miễn dịch trong cơ thể, bộ não sinh học, một đàn kiến đông, virut lan truyền trong xã hội, hệ thời tiết, …</p>
+<div class="figure" style="text-align: center"><span id="fig:flybrain"></span>
+<img src="images/flybrain.png" alt="Bộ não con ruồi với 25,000 neuron và 25 triệu dây thần kinh là một hệ phức hợp - nguồn: Google" width="50%" />
+<p class="caption">
+Figure 1.1: Bộ não con ruồi với 25,000 neuron và 25 triệu dây thần kinh là một hệ phức hợp - nguồn: Google
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:internet"></span>
+<img src="images/internet2020.png" alt="Mạng Internet IPv4 có 47,610 Autonomous Systems' (ASes) và 148,455 kết nối là một hệ phức hợp - nguồn: caida.org" width="50%" />
+<p class="caption">
+Figure 1.2: Mạng Internet IPv4 có 47,610 Autonomous Systems’ (ASes) và 148,455 kết nối là một hệ phức hợp - nguồn: caida.org
+</p>
+</div>
+<div id="cac-tinh-cht-cua-h-phc-hp" class="section level2">
+<h2><span class="header-section-number">1.1</span> Các tính chất của hệ phức hợp</h2>
+<p>Sự vận hành các hệ phức hợp có những tính chất đặc biệt như:</p>
+<ul>
+<li><p><strong>Tính tiến hóa</strong>: các phần tử của hệ khi tương tác với các phần tử khác có thể thay đổi hành vi của mình và thích ứng với môi trường.</p></li>
+<li><p><strong>Tính đột phát</strong> (emergence): hệ có thể xuất hiện những hình dạng/cấu trúc và hành vi mới mà không thể đoán được nếu chỉ dựa trên các định luật cơ bản của phần tử thành phần hoặc chính.</p></li>
+<li><p><strong>Tính tự tổ chức</strong>: khi biến đổi thích ứng, các phần tử có thể tương tác và hệ tự diễn biến về một trạng thái dừng (mà không cần bộ phận điều khiển trung tâm).</p></li>
+<li><p><strong>Điểm hút</strong>: là những trạng thái mà hệ có thể tiến hóa đến mặc dù điều kiện ban đầu của thời điểm tiến hóa khác nhau.</p></li>
+<li><p><strong>Tính tự tổ chức quan trọng</strong>: (self-organized criticality): có một số điểm hút mà hệ tự tiến hóa về và dừng lại, sau đó hệ diễn biến rất đột ngột với cường độ trải dài trong một khoảng rộng và <strong>không đoán được</strong>. Về dài hạn thì cường độ này tuân theo một phân bố phổ biến là luật hàm mũ.</p></li>
+<li><p><strong>Tính hỗn loạn</strong>(chaos): là những biến đổi không dự đoán được và rất nhạy cảm với điều kiện ban đầu. Sự hỗn loạn này thường không kiểm soát được và phải mất một thời gian hệ mới ổn định lại. (Nhiều khi hệ phức hợp được hiểu nhầm là hệ hỗn loạn - chaotic system - dù hệ phức hợp có tính chất rộng hơn)</p></li>
+<li><p><strong>Tính phi tuyến</strong>: rất nhiều biến đổi của hệ có tính phi tuyến và để dự báo được cần nhiều các thuật toán phi tuyến phức tạp và ứng dụng của xác suất.</p></li>
+<li><p><strong>Sự chuyển pha</strong>: Tính tự tổ chức quan trọng là điểm xảy ra sự chuyển pha. Sự chuyển pha này thường diễn ra đột ngột, cường độ mạnh và có thể là quá trình không đảo ngược được. (Sự chuyển pha trong các hệ tự nhiên đã được nghiên cứu nhiều như nước đá tan thành nước,… và có thể vận dụng các kiến thức này nhưng sự chuyển pha trong các hệ phức hợp phức tạp hơn).</p></li>
+</ul>
+<p>Bảng sau đây đưa ra một vài ví dụ về một số tính chất của ba hệ phức hợp tiêu biểu: mạng Internet (cần phân biệt với mạng WWW), một nền kinh tế và một bộ não sinh học.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Network
+</th>
+<th style="text-align:left;">
+Adaptable
+</th>
+<th style="text-align:left;">
+Emergence
+</th>
+<th style="text-align:left;">
+Chaos
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Mạng Internet
+</td>
+<td style="text-align:left;">
+Sự phát triển và mở rộng mạng phù hợp với địa lý và nhu cầu liên lạc
+</td>
+<td style="text-align:left;">
+Sự lan truyền thông tin có thể gây nghẽn mạng
+</td>
+<td style="text-align:left;">
+Các nút/router có thể bị ngắt đồng thời trên diện rộng và không kiểm soát
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Nền kinh tế
+</td>
+<td style="text-align:left;">
+Sự phát triển kinh tế thỏa mãn các nhu cầu tiêu dùng của con người
+</td>
+<td style="text-align:left;">
+Khủng hoảng xuất hiện sau một thời gian phát triển tốt đẹp
+</td>
+<td style="text-align:left;">
+Cung/cầu đổi chiều liên tục trong một thời gian ngắn
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+Bộ não sinh học
+</td>
+<td style="text-align:left;">
+Các kết nối dây thần kinh thay đổi phù hợp với sự tiến hóa
+</td>
+<td style="text-align:left;">
+Các phát minh bột phát sau qua trình suy nghĩ
+</td>
+<td style="text-align:left;">
+Mất trí nhớ
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="khoa-hoc-h-phc-hp-complex-sicence" class="section level2">
+<h2><span class="header-section-number">1.2</span> Khoa học Hệ phức hợp (Complex sicence)</h2>
+<p>Chính vì sự phổ biến và quan trọng của các hệ phức hợp, Khoa học hệ phức hợp (“Complex Science”) đang trở thành một hướng quan trọng và thu hút sự chú ý của các nhà nghiên cứu và xã hội. Đây là một hướng nghiên cứu đa ngành với các định luật có thể đến từ Vật lý thống kê, Toán học, Lý thuyết thông tin, Hệ động lực, … nhưng cũng có thể đến từ nhiều ngành ứng dụng như Kinh tế học, Sinh học, Xã hội học,… Trong 22 chương trình (sáng kiến) KHCN của lộ trình tới 2050 của Trung Quốc, có 4 sáng kiến về “nghiên cứu cơ bản” và 3 sáng kiến về “nghiên cứu liên ngành và tiên tiến”, trong đó Hệ phức hợp là một hướng nghiên cứu liên ngành trọng tâm*.</p>
+<p>Nghiên cứu về Hệ phức hợp có thể chia thành hai nhánh nhỏ hơn:</p>
+<ul>
+<li><p>Nghiên cứu về <strong>cấu trúc</strong> của hệ: thành phần, liên kết, phân bố tính chất, tính phân nhóm, sự biến đổi cấu trúc theo thời gian, hệ siêu lớn, biểu diễn hình ảnh,…</p></li>
+<li><p>Nghiên cứu về <strong>quá trình động lực</strong> (dynamic process) diễn ra trong hệ: quá trình tan rã, phá vỡ, chuyển pha; quá trình lan truyền thông thông/dịch bệnh và điều khiển ngăn chặn; các quá trình chuyển pha và đột phát, mô phỏng và dự báo,…</p></li>
+</ul>
+<p>Hai nhánh này có thể kết hợp và bổ sung cho nhau: Hiểu cấu trúc sẽ mô tả tốt hơn các quá trình diễn ra trên hệ.</p>
+<p>Các nghiên cứu này nếu được thực hiện sẽ đóng góp quan trọng cho nghiên cứu cơ bản và ứng dụng ví dụ như:</p>
+<ul>
+<li><p>Tăng cường sự ổn định và phòng ngừa khả năng đổ vỡ dây chuyền của các hệ như Internet, mạng lưới truyền tải điện, mạng lưới giao thông,…</p></li>
+<li><p>Hiểu rõ và điều khiển các quá trình lan truyền (thông tin, dịch bệnh,…)</p></li>
+<li><p>Dự báo xã hội (khủng hoảng kinh tế) và đề xuất các chính sách ổn định</p></li>
+<li><p>Phát triển các thuật toán AI dựa trên sự hiểu biết về các tương tác giữa nơron trong não bộ, tiến đến trí thông minh tiến hóa.</p></li>
+<li><p>Phát triển các máy AI hoặc cấu trúc máy tính mới dựa trên các cấu trúc Vật lý hoàn toàn mới.</p></li>
+<li><p>Hỗ trợ các phát minh sinh học và y tế dựa trên sự hiểu biết về tương tác trong các hệ vi sinh …</p></li>
+</ul>
+</div>
+<div id="cac-phuong-phap-nghien-cu-chinh" class="section level2">
+<h2><span class="header-section-number">1.3</span> Các phương pháp nghiên cứu chính:</h2>
+<p>Hiện nay có hai phương pháp tiếp cận nghiên cứu chính đối với hệ phức hợp là:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Mô phỏng đa tác nhân</strong> (“Agent-based modeling”): đây là cách tiếp cận dạng “bottom-up” bằng cách mô phỏng số lượng lớn các tác nhân có tính chất và hành vi của hệ thực cần nghiên cứu. Kết quả mô phỏng sẽ cho ra một hệ ảo và có thể xác định được cấu trúc, hoặc tiếp tục sử dụng để mô phỏng các quá trình động học trong hệ.</li>
+</ol>
+<p>Hướng nghiên cứu này có lợi điểm là mô phỏng được số lượng lớn tác nhân, mô phỏng hệ có quan hệ phức tạp,… nhưng có nhược điểm là thiếu các lý thuyết, mô hình hỗ trợ</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Khoa học mạng lưới</strong> (“Network Science”): một điều dễ dàng là hầu hết các hệ phức hợp có thể được mô tả bởi một mạng lưới, hay một đồ thị trong ngôn ngữ Toán học.</li>
+</ol>
+<p>Cách tiếp cận này có thể tận dụng được các lý thuyết và mô hình từ lý thuyết đồ thị, vật lý thống kê,… Các mô hình được xây dựng từ đơn giản đến phức tạp nên có tính hệ thống hơn.</p>
+Ví dụ về hình ảnh của mạng lưới 500 sân bay lớn trên nước Mỹ:
+<div class="figure" style="text-align: center"><span id="fig:USairport"></span>
+<img src="images/US_500airports.png" alt="Mạng lưới 500 sân bay thương mại lớn nhất của nước Mỹ - nguồn dữ liệu: (Dall’Asta et al. 2006)" width="100%" />
+<p class="caption">
+Figure 1.3: Mạng lưới 500 sân bay thương mại lớn nhất của nước Mỹ - nguồn dữ liệu: (Dall’Asta et al. 2006)
+</p>
+</div>
+<p>Trong tài liệu này tôi sẽ tập trung vào hướng khoa học mạng lưới nhiều hơn là mô phỏng đa tác nhân.</p>
+<div id="tham-khao" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Tham khảo:</h3>
+<p>Albert-Laszlo Barabasi. Linked. The New Science of Networks. Perseus Publ., 2002</p>
+<p>M.E.J. Newman. Networks. An Introduction. Oxford Univ. Press, 2010</p>
+<p>Mitchell, Melanie, Complexity: A Guided Tour Oxford University Press: New York, NY, 2009</p>
+<p>Dall’Asta, Luca, Alain Barrat, Marc Barthélemy, and Alessandro Vespignani. 2006. “Vulnerability of Weighted Networks.” Journal of Statistical Mechanics: Theory and Experiment.</p>
+<ul>
+<li>Theo thầy Nguyễn Ái Việt <a href="https://www.facebook.com/aiviet.nguyen.9?__tn__=%2CdC-R-R&amp;eid=ARAJ1vCKX01Y4m8vomc-RQMwqgoWWzWqDudM8pAkDrbitzWK5jUOfzJL7H-fi3lD-TLvTmejQqrdrGNC&amp;hc_ref=ARTz8R9ntR0lsAhLWBjxkYsdR-84qhnvs4OSnd3F4WtMzfNjOk7-lgkzYbfHYRJiXVk&amp;fref=nf">tổng hợp</a> lại.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["ComplexNetwork.pdf", "ComplexNetwork.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"toc_depth": 4
+});
+});
+</script>
+
+</body>
+
+</html>

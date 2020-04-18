@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585972857474.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "92|71|110|0|\n",
+    "hash" : "0",
+    "id" : "CDBE7B72",
+    "lastKnownWriteTime" : 1586718959,
+    "last_content_update" : 1586718959977,
+    "path" : "~/Google Drive/WRITING/ComplexNetwork/01-intro.Rmd",
+    "project_path" : "01-intro.Rmd",
+    "properties" : {
+        "cursorPosition" : "88,3",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

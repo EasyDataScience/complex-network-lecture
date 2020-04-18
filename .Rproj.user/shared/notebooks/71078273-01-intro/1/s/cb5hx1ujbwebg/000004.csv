@@ -1,0 +1,8 @@
+"0","knitr::kable("
+"0","  #temp <- "
+"0","  kable(data.frame(System = c(1),Adaptivity = c(2)), caption = 'Here is a nice table!',"
+"0","  booktabs = TRUE)"
+"0",")"
+"2","Error in kable(data.frame(System = c(1), Adaptivity = c(2)), caption = ""Here is a nice table!"",  : 
+  could not find function ""kable""
+"

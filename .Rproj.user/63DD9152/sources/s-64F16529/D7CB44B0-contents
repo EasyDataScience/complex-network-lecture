@@ -1,0 +1,328 @@
+library("ggplot2")
+library("igraph")
+
+# Compute weighted efficiency - From M. Bellingeri ----
+effi<-function(g,pesis,N)
+{
+  
+  #pesis<-E(g)$weight
+  pesis<-1/pesis
+  weg.w<-shortest.paths(g,mode = c("all"),weight=pesis,algorithm = c("dijkstra"))## weighted shortest path
+  #print(weg.w)
+  m<-1/weg.w
+  diag(m)<-0
+  effe<-sum(m)/(N*(N-1)) ## Weighted efficiency, weighted paths
+  
+  return(effe)
+}
+
+# Attack network using Random Simulation
+# ntrial: Monte-Carlo Simulation times
+# qstop: q from 0 to qstop
+# deltaq: q step
+# g: igraph
+# return_graph: T/F
+attack_network_random <- function(ntrial, deltaq, qstop, g, return_graph){
+  N <- length(V(g))
+  q <- seq(from=0,to=qstop ,by=deltaq)
+  # Measures
+  maxsize1 <- max(clusters(g)$csize)  #random breakdown
+  k <- degree(g)
+  kappa <- ifelse(mean(k)!=0,mean(k^2)/mean(k),0)
+  efficient <- effi(g,E(g)$weight,N)
+  
+  gtemp <- g
+  for (i in q[-1]){ 
+    progress(100*i/length(q))
+    tam<- 0
+    kappa_temp <- 0
+    efficient_temp <- 0
+    #random
+    for (trial in 1:ntrial){ # Repeat simulation only for Random breakdown
+      gtemp <- delete_vertices(g, sample(V(g),round(i*N),replace =FALSE)) #remove a fraction i of nodes
+      k <- degree(gtemp)
+      kappa_temp <- kappa_temp + ifelse(mean(k)!=0,mean(k^2)/mean(k),0)
+      tam <- tam + max(clusters(gtemp)$csize)
+      efficient_temp <- efficient_temp + effi(gtemp,E(gtemp)$weight,length(V(gtemp)))
+    }
+    maxsize1 <- c(maxsize1, tam/ntrial)
+    kappa <- c(kappa, kappa_temp/ntrial)
+    efficient <- c(efficient, efficient_temp/ntrial)
+  }
+  df <- data.frame(q,maxsize1, kappa, efficient)
+  df$Strategy <- "Random breakdown"
+  
+  # ggplot(df, aes(x=q,y=maxsize1)) + geom_line(aes(color= Strategy),size=1)+
+  #   ylab("relative size of giant component") +xlab("fraction of removed nodes") + theme_bw()+
+  #   theme(legend.position = c(0.75, 0.85),legend.background = element_rect(color = "black", size = 1, linetype = "solid"),legend.text=element_text(size=14),axis.title=element_text(size=14),axis.text=element_text(size=12))
+  # 
+  if (return_graph) return(gtemp) else return(df) #gnew5
+}
+
+# Attack network using intentional strategies: ID, IB, IWB, IS, RD, RB, RWB, RS and CondB
+attack_network_intentional <- function(str, qstop, g, return_graph,save_graph){
+  N <- length(V(g))
+  maxclusterg <- max(clusters(g)$csize)
+  maxsize1 <- maxclusterg  #random breakdown
+
+  # Initial degree
+  k <- degree(g)
+  ID_order <- sort(k, decreasing = T, index.return = T)$ix
+  # Initial weighted betweeness
+  weighted_betweeness <- betweenness(g, v= V(g), directed = FALSE, weights = 1/E(g)$weight)
+  IWB_order <- sort(weighted_betweeness, decreasing = T, index.return = T)$ix
+  
+  # Initial betweeness
+  g_binary <- g
+  E(g_binary)$weight <- 1
+  between <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+  IB_order <- sort(between, decreasing = T, index.return = T)$ix
+  rm(g_binary)  
+  # Initial strength (weighted by defaut)
+  strength <- strength(g, v = V(g), mode = c("all"),loops = F)
+  IS_order <- sort(strength, decreasing = T, index.return = T)$ix
+  
+  maxsize1 <- max(clusters(g)$csize)  #random breakdown
+  kappa <- ifelse(mean(k)!=0,mean(k^2)/mean(k),0)
+  efficient <- effi(g,E(g)$weight,N)
+  
+  gtemp <- g
+  
+  for (i in 1:((N-1)*qstop)){ 
+  #for (i in 1:1550){
+    progress(100*i/N)
+    if (str == "ID"){ #initial degree
+      gtemp <- delete_vertices(g,  V(g)[ID_order[1:i]])  
+    } else {
+      if (str == "RD"){
+        gtemp <- delete_vertices(gtemp,  V(gtemp)[which.max(degree(gtemp))])  
+      } else if (str == "IB"){gtemp <- delete_vertices(g,  V(g)[IB_order[1:i]])}
+          else if (str == "RB"){
+            g_binary <- gtemp
+            E(g_binary)$weight <- 1
+            tmp <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+            gtemp <- delete_vertices(gtemp,  V(gtemp)[which.max(tmp)])
+          }
+            else if (str == "IS"){gtemp <- delete_vertices(g,  V(g)[IS_order[1:i]])}
+                else if (str == "RS"){
+                  tmp <- strength(gtemp, v = V(gtemp), mode = c("all"),loops = F)
+                  gtemp <- delete_vertices(gtemp,  V(gtemp)[which.max(tmp)])  
+                }
+                    else if (str == "IWB"){gtemp <- delete_vertices(g,  V(g)[IWB_order[1:i]])}
+                      else if (str == "RWB") {
+                        tmp <- betweenness(gtemp, v= V(gtemp), directed = F, weights = 1/E(gtemp)$weight)
+                        gtemp <- delete_vertices(gtemp,  V(gtemp)[which.max(tmp)])
+                      } else if ((str == "CondBet") | (str == "CondWBet") | (str == "CondWBetS")) {
+                        # cluster check                        
+                        if (str == "CondBet"){
+                          g_binary <- gtemp
+                          E(g_binary)$weight <- 1
+                          btn_temp <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+                        } else{
+                          btn_temp <- betweenness(gtemp, v= V(gtemp),directed = FALSE, weights = 1/E(gtemp)$weight,nobigint = TRUE, normalized = FALSE)  
+                        }
+                        cluster_temp <- clusters(gtemp)
+                        
+                        # Condition: max(betweenness) not in LCC then select the node with highest betweenness inside LCC
+                        if (max(btn_temp) == 0) gtemp <- delete_vertices(gtemp, which.max(degree(gtemp))) ## All complete graphs
+                        else{
+                          if (!(cluster_temp$membership[which.max(btn_temp)] %in% which(cluster_temp$csize == max(cluster_temp$csize)))){ #Max betweenness not inside LCC
+                            if (str == "CondWBetS"){ # Select the Highest Strength
+                              tmp <- strength(gtemp, v = V(gtemp), mode = c("all"),loops = F)
+                              gtemp <- delete_vertices(gtemp,  V(gtemp)[which.max(tmp)])  
+                            } else{
+                              tmp <- btn_temp
+                              tmp1 <- which(cluster_temp$csize == max(cluster_temp$csize))
+                              if (length(tmp1) == 1) { #There is one LCC
+                                tmp[cluster_temp$membership!=which.max(cluster_temp$csize)] <- 0 # Let the betweenness of all other clusters = 0
+                                tmp[cluster_temp$membership==which.max(cluster_temp$csize)] <- 
+                                  tmp[cluster_temp$membership==which.max(cluster_temp$csize)] + 1 # Increase the betweenness of nodes inslide LLC by 1 to avoid all 0
+                              } else{# There are multiple LCC
+                                tmp2 <- aggregate(degree(gtemp), by = list(cluster_temp$membership),sum) # Select the LCC with the most connected
+                                tmp3 <- which(tmp2$x == max(tmp2$x))
+                                tmp[!(cluster_temp$membership %in% tmp3)] <- 0 # Let all other cluster 0
+                                tmp[cluster_temp$membership %in% tmp3] <- tmp[cluster_temp$membership %in% tmp3] + 1 # Increase the betweenness of nodes inslide LLC by 1 to avoid all 0
+                              }
+                              gtemp <- delete_vertices(gtemp, which.max(tmp))
+                            }
+                          } else  gtemp <- delete_vertices(gtemp, V(gtemp)[which.max(btn_temp)])  #If inside LLC, delete max betweenness
+                        }
+                        
+                      }
+    }
+  
+    knew <- degree(gtemp)
+    kap <-  ifelse(mean(knew)!=0,mean(knew^2)/mean(knew),0)
+    kappa <- c(kappa,kap)
+    #
+    maxsize1 <- c(maxsize1, max(clusters(gtemp)$csize))
+    #efficient <- c(efficient, effi(gtemp,E(gtemp)$weight,length(V(gtemp))))
+    # Use initial N
+    efficient <- c(efficient, effi(gtemp,E(gtemp)$weight,N))
+    
+    # # Temporaly save
+    # if (i %% round(N/50) == 0){
+    #   write.csv(data.frame(q = 0:i,maxsize1, kappa, efficient),file=paste("temp_",i,".csv",sep=""),row.names = F)
+    #   saveRDS(gtemp, file=paste("graph_temp_",i,".RData",sep=""))
+    # } 
+    
+    # Save graph
+    if (save_graph) saveRDS(gtemp,file=paste("graph_step_",i,".RDS",sep=""))
+  }
+  
+  df <- data.frame(q = 1:length(maxsize1),maxsize1, kappa, efficient)
+  #df$Strategy <- "Random breakdown"
+  
+  # ggplot(df, aes(x=q,y=maxsize1)) + geom_line(aes(color= Strategy),size=1)+
+  #   ylab("relative size of giant component") +xlab("fraction of removed nodes") + theme_bw()+
+  #   theme(legend.position = c(0.75, 0.85),legend.background = element_rect(color = "black", size = 1, linetype = "solid"),legend.text=element_text(size=14),axis.title=element_text(size=14),axis.text=element_text(size=12))
+  
+  if (return_graph) return(gtemp) else return(df) #gnew5
+}
+
+# Intentional Attack network with multi-nodes removal (instead of single node removal)
+attack_network_intentional_step <- function(str, step, qstop, g, return_graph){
+  N <- length(V(g))
+  maxclusterg <- max(clusters(g)$csize)
+  maxsize1 <-maxclusterg  #random breakdown
+  
+  # Initial degree
+  k <- degree(g)
+  ID_order <- sort(k, decreasing = T, index.return = T)$ix
+  # # Initial weighted betweeness
+  # weighted_betweeness <- betweenness(g, v= V(g), directed = FALSE, weights = 1/E(g)$weight)
+  # IWB_order <- sort(weighted_betweeness, decreasing = T, index.return = T)$ix
+  # 
+  # Initial betweeness
+  g_binary <- g
+  E(g_binary)$weight <- 1
+  between <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+  IB_order <- sort(between, decreasing = T, index.return = T)$ix
+  rm(g_binary)  
+  
+  # # Initial strength (weighted by defaut)
+  # strength <- strength(g, v = V(g), mode = c("all"),loops = F)
+  # IS_order <- sort(strength, decreasing = T, index.return = T)$ix
+  # 
+  maxsize1 <- max(clusters(g)$csize)  #random breakdown
+  kappa <- ifelse(mean(k)!=0,mean(k^2)/mean(k),0)
+  efficient <- effi(g,E(g)$weight,N)
+  
+  gtemp <- g
+  
+  for (i in seq(1,(N-1)*qstop,step)){ 
+    #for (i in 1:1550){
+    progress(100*i/N)
+    if (str == "ID"){ #initial degree
+      gtemp <- delete_vertices(g,  V(g)[ID_order[1:i]])  
+    } else {
+      if (str == "RD"){
+        # Initial degree
+        k <- degree(gtemp)
+        RD_order <- sort(k, decreasing = T, index.return = T)$ix
+        gtemp <- delete_vertices(gtemp,  V(gtemp)[RD_order[1:step]])  
+        
+      } else if (str == "IB"){gtemp <- delete_vertices(g,  V(g)[IB_order[1:i]])}
+      else if (str == "RB"){
+        g_binary <- gtemp
+        E(g_binary)$weight <- 1
+        tmp <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+        RB_order <- sort(tmp, decreasing = T, index.return = T)$ix
+        gtemp <- delete_vertices(gtemp,  V(gtemp)[RB_order[1:min(step,length(RB_order))]])
+      }
+      
+    }
+    
+    knew <- degree(gtemp)
+    kap <-  ifelse(mean(knew)!=0,mean(knew^2)/mean(knew),0)
+    kappa <- c(kappa,kap)
+    #
+    maxsize1 <- c(maxsize1, max(clusters(gtemp)$csize))
+    #efficient <- c(efficient, effi(gtemp,E(gtemp)$weight,length(V(gtemp))))
+    # Use initial N
+    efficient <- c(efficient, effi(gtemp,E(gtemp)$weight,N))
+    
+    if ((i-1)%%100 == 0) save(gtemp,kappa,maxsize1,file=paste("temp_df_attack",as.character(i),".RData",sep="_"))
+  }
+  
+  #df <- data.frame(q = 1:length(maxsize1),maxsize1, kappa, efficient)
+  df <- data.frame(q = 1:length(maxsize1),maxsize1, kappa)
+  #df$Strategy <- "Random breakdown"
+  
+  # ggplot(df, aes(x=q,y=maxsize1)) + geom_line(aes(color= Strategy),size=1)+
+  #   ylab("relative size of giant component") +xlab("fraction of removed nodes") + theme_bw()+
+  #   theme(legend.position = c(0.75, 0.85),legend.background = element_rect(color = "black", size = 1, linetype = "solid"),legend.text=element_text(size=14),axis.title=element_text(size=14),axis.text=element_text(size=12))
+  # 
+  if (return_graph) return(gtemp) else return(df) #gnew5
+}
+
+node_measures <- function(g){
+  # Initial degree
+  k <- degree(g)
+  ID_order <- sort(k, decreasing = T, index.return = T)$ix
+  # Initial weighted betweeness
+  weighted_betweeness <- betweenness(g, v= V(g), directed = FALSE, weights = 1/E(g)$weight)
+  IWB_order <- sort(weighted_betweeness, decreasing = T, index.return = T)$ix
+  
+  # Initial betweeness
+  g_binary <- g
+  E(g_binary)$weight <- 1
+  between <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+  IB_order <- sort(between, decreasing = T, index.return = T)$ix
+  rm(g_binary)  
+  # Initial strength (weighted by defaut)
+  strength <- strength(g, v = V(g), mode = c("all"),loops = F)
+  IS_order <- sort(strength, decreasing = T, index.return = T)$ix
+  
+  result <- data.frame(degree = k, strength = strength, b_betweeness = between, w_betweeness = weighted_betweeness)
+}
+
+# Convert igraph to network (of library ggnet)
+igraph_to_network <- function(g){
+  if (nrow(as.matrix(get.edgelist(g)))>0){
+    net = network(as.matrix(get.edgelist(g)), directed = FALSE)
+    # load edges from a data.frame via network.edgelist
+    edges_matrix <- as.matrix(get.edgelist(g))
+    edata <-data.frame(
+      tails=edges_matrix[,1],
+      heads=edges_matrix[,2],
+      weights= E(g)$weight/3,  # Manually increase the size
+      stringsAsFactors=FALSE
+    )
+    net<-network.edgelist(edata,network.initialize(length(V(g))),ignore.eval=FALSE)
+  } else {net <- network.initialize(length(V(g)))}
+  
+  #as.sociomatrix(net,attrname='weights')
+  #net%e%'weights'
+  return(net)
+}
+
+# Compute basic statistics of igraph network
+gpraph_measure <- function(g, weight){
+  
+  N <- length(V(g))  
+  # Size of largest components
+  components <- components(g, mode = c("weak", "strong"))
+  g1 <- delete.vertices(g, components$membership!=which.max(components$csize))
+  
+  # Effective diameter
+  temp <- distance_table(g, direct = FALSE)
+  temp <- cumsum(prop.table(temp$res))
+  # Intrapolate the 90% percentile
+  p1 <- temp[temp < 0.9]
+  p2 <- temp[temp >= 0.9]
+  Eff_diameter <- ((0.9-p1[length(p1)])*(length(p1)+1) + (p2[1]-0.9)*length(p1))/(p2[1]-p1[length(p1)])
+  
+  
+  if(!weight) E(g)$weight <- 1
+  df <- data.frame(value = c(N,length(E(g)),min(E(g)$weight),max(E(g)$weight),mean(E(g)$weight),
+                             length(V(g1)), length(V(g1))/N, length(E(g))/N,
+                             diameter(g, directed = FALSE, unconnected = TRUE, weights = NULL),
+                             Eff_diameter,transitivity(g, type = "average"),length(E(g))/(N*(N-1))
+  ))
+  df$measure <- c("Nb Nodes","Nb Edges","Min. Weight","Max. Weight","Avg. Weight",
+                  "Size largest conn. comp.","Size largest conn. comp. %","Avg. degree",
+                  "Diameter","Effective diameter","Avg. clustering coefficient","Density"
+  )
+  return(df)
+}

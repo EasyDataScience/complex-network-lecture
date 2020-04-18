@@ -1,0 +1,38 @@
+matrix_to_list <- function(A){
+  g<-graph_from_adjacency_matrix(A, mode = "undirected", weighted = NULL, diag = FALSE)
+  edge <- as_edgelist(g, names = TRUE)
+  neighbor <- as_adj_list(g)
+  return(list(edgelist = edge, neighborlist = neighbor))
+}
+
+
+empiric_correl <- function(r, rho, L){
+  library("BMS")
+  f <- ((L-2)*(1-rho^2)^((L-1)/2)*(1-r^2)^((L-4)/2)*L^(-1/2))/(sqrt(2*pi)*(1-rho*r)^(L-3/2))
+  f <- f*f21hyper(1/2, 1/2, (2*L-1)/2, (rho*r+1)/2)
+  # gamma(L-1)/gamma(L-1/2) ~ L^(-1/2)
+  return(f)                                                               
+}
+
+plot_power <- function(x,k){
+  temp <- hist(x,k)
+  plot(temp$mids,temp$counts, log='xy')
+  degree = temp$mid
+  probability = temp$counts
+  # delete blank values
+  nonzero.position = which(probability != 0)
+  probability = probability[nonzero.position]
+  degree = degree[nonzero.position]
+  # delete blank values
+  reg = lm(log(probability) ~ log(degree))
+  cozf = coef(reg)
+  alpha = -cozf[[2]]
+  print(paste("Alpha =", round(alpha, 3)))
+}
+
+kappa <- function(gtemp){
+  knew <- degree(gtemp, mode = c("all"))
+  kap <-  ifelse(mean(knew)!=0,mean(knew^2)/mean(knew),0)
+  return(kap)
+}
+  

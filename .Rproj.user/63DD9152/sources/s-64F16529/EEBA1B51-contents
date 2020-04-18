@@ -1,0 +1,316 @@
+## WEIGHTED NETWORK - NGUYEN QUANG 2019 ##
+
+## WEIGHTED EFFICIENCY RECEIVED FROM MICHELE BELLINGERIE ##
+##########################################
+## WEIGHTED EFFICIENCY MEASUREMENT (LIKE Latora and Marchiori 2001; Bellingeri and Cassi 2018)
+##  g<- the weighted graph as edgelist o graph object in R
+##  pesis<- the link weights (like a vector of numbers)
+## N<-number of vertices of the graph
+
+require(igraph)
+require(ggplot2)
+require(svMisc)  # For displaying progress bar
+source('~/Dropbox/Network/Functions/Resilence.R')
+source('~/Dropbox/Network/Functions/basic_function.R')
+
+# Load packages to visualize large graph ----
+#lapply(c("devtools", "sna", "intergraph", "igraph", "network"), install.packages)
+library(devtools)
+#devtools::install_github(repo="ggally", username="ggobi")
+#install_github("ggobi/ggally")
+lapply(c("sna", "intergraph", "GGally", "igraph", "network"), 
+       require, character.only=T)
+library(network)
+library(sna)
+library(ggplot2)
+
+#install.packages("GGally")
+library(GGally)
+#devtools::install_github("briatte/ggnet") # Then choose Update tibble no from soure
+library(ggnet)
+
+# Load igraph version
+detach(package:sna, unload=TRUE)
+detach(package:network, unload=TRUE)
+detach(package:igraph, unload=TRUE)
+# IGRAPH FIRST
+library(igraph)
+args(igraph::betweenness)
+args(igraph::set.edge.attribute)
+
+
+
+######################################################
+## betwenness centrality measure
+## pesi <- is the vector of link weights, if you use a vector with all 1, then the betwenness corresponds to the binary one
+
+pesi<-E(g)$weight
+betweenness(g,v=V(g), directed =F, weight = pesi) ##  COMPUTE THE WEIGHTED BETWENNESS CENTRALITY
+
+###################################################################################
+## END RECEIVED CODE FROM MICHELE BELLINGERIE ##
+
+# Input Network
+tmp <- read.table('netscience.txt', header = TRUE)
+tmp <- read.table('bitcoin.txt', header = TRUE)
+tmp <- read.table('sp500_1.txt', header = TRUE)
+tmp <- read.table('sp500_2.txt', header = TRUE)
+head(tmp)
+tmp <- read.table('US_500airports.txt', header = FALSE) # change 0 to max+1
+temp <- max(max(tmp$V1),max(tmp$V2))
+tmp$V1 <- ifelse(tmp$V1 == 0, temp,tmp$V1)
+tmp$V2 <- ifelse(tmp$V2 == 0, temp,tmp$V2)
+
+# World airport
+tmp <- read.table("world_airroute_2014.dat",header=FALSE,sep=",")
+tmp <- tmp[,c(3,5)]
+tmp$W <- 1
+
+# # Rename vertex SP500, World airport network,  to number (for vizualizing with ggnet)
+tmp1 <- as.character(tmp[,1])
+tmp2 <- as.character(tmp[,2])
+list_nodes <- unique(c(tmp1,tmp2))
+list_nodes <- data.frame(name = list_nodes, id = 1:length(list_nodes))
+tmp <- merge(tmp, list_nodes,by.x = colnames(tmp)[1],by.y = 'name',all.x=T)
+head(tmp)
+tmp <- merge(tmp, list_nodes,by.x = colnames(tmp)[2],by.y = 'name',all.x=T)
+tmp[,1] <- tmp[,4]
+tmp[,2] <- tmp[,5]
+tmp <- tmp[,1:3]
+
+# SP500 network with lower density (6.45)
+# tmp <- read.table('sp500_1b.txt', header = TRUE)
+# tmp <- read.table('sp500_2b.txt', header = TRUE)
+
+# tmp <- read.table('sp500_1_d019.txt', header = TRUE)
+
+# Create graph
+g <- graph_from_edgelist(as.matrix(tmp[,1:2]),directed = FALSE)
+# Set weight
+g <- set.edge.attribute(g, "weight", value=tmp[,3]) 
+
+N <- length(V(g))
+N
+length(E(g))
+length(E(g))/N  # Average degree
+hist(E(g)$weight, 40)
+sum(strength(g, v = V(g), mode = c("all"),loops = F))/N  #Average node strength #2*sum(E(g)$weight)/N  # 
+mean(E(g)$weight)   # Average link weights
+plot_power(degree(g),60)
+
+# kappa
+knew <- degree(g)
+mean(knew)  # 7.15
+kap <-  ifelse(mean(knew)!=0,mean(knew^2)/mean(knew),0)
+kap # 79
+# <k>/<k^2> ~ beta/mu
+1/kap  # 0.01
+# <k>^2/<k^2> ~ beta<k>/mu
+mean(knew)/kap  # 0.08 ~ 0.1
+# mu = 0.3 -> 0.1*0.3 = 0.03 -> 100*0.03 = 3
+
+#tmp <- hist(E(g)$weight, 100)
+#write.csv(data.frame(mid = tmp$mids, fre = tmp$counts, density = tmp$density), file="weights_SP500_2b.csv")
+
+# Compute Node measures
+node_m <- node_measures(g)
+write.csv(node_m, file="node_bitcoin.csv")
+write.csv(node_m, file="node_netscience_corrected.csv")
+
+# # Export network statistics
+# temp <- gpraph_measure(g, weight = TRUE)
+# write.csv(temp, file="bitcoin_stat.csv")
+
+# # With label
+# plot(g,vertex.size=0.2,
+#      vertex.frame.color=V(g)$color,
+#      vertex.label = V(g)$name,
+#      vertex.label.cex = 0.5,
+#      vertex.color= NA,
+#      edge.width = E(g)$weight)
+
+# Binary betweenness
+V(g)[which.max(betweenness(g,v=V(g), directed =F))]
+# Weighted betweeness
+pesi <- E(g)$weight
+betweenness(g,v=V(g), directed =F, weight = pesi)
+
+# Efficiency
+effi(g,pesi,N)
+
+# Plot graph
+# Without label
+# With label
+plot(g,vertex.size=1.0,
+     vertex.frame.color=V(g)$color,
+     vertex.label = NA,
+     vertex.label.cex = 0.5,
+     vertex.color= NA,
+     edge.width = 2*E(g)$weight^0.5)
+# # Remove non-connected nodes
+# g1 <- delete.vertices(g, degree(g) == 0)
+
+# Largest components
+library(igraph)
+components <- components(g, mode = c("weak", "strong"))
+g1 <- delete.vertices(g, components$membership!=which.max(components$csize))
+hist(E(g1)$weight,40)
+plot(g1,vertex.size=1,vertex.frame.color=V(g1)$color,vertex.label = NA,
+     vertex.label.cex = 0.5,vertex.color= 'black',edge.width = 2*E(g1)$weight^1.)
+# Plot large graph - then DETACH sna, network again
+library(ggnet)
+g1.plot <- ggnet2(igraph_to_network(g), size = 0.5, node.color = "blue", edge.size = "weights")
+g1.plot
+# Load igraph version
+detach(package:sna, unload=TRUE)
+detach(package:network, unload=TRUE)
+detach(package:igraph, unload=TRUE)
+# IGRAPH FIRST
+library(igraph)
+
+# Intermediate graph
+gtemp <- attack_network_intentional(str = "RWB", 1, g, return_graph = T, save_graph=F)
+#length(V(gtemp))
+gtemp <- attack_network_intentional(str = "CondBet", 0.6486, g, return_graph = T, save_graph=F)
+gtemp <- attack_network_intentional(str = "RB", 0.67, g, return_graph = T, save_graph=F)
+plot(gtemp,vertex.size=1, vertex.frame.color=NA,vertex.label = NA,vertex.label.cex = 0.5,vertex.color= 'black',edge.width = 30*E(gtemp)$weight^2)
+
+# # Load saved graph
+# gtemp <- readRDS("graph_step_1.RDS")
+
+# Color by degree
+V(gtemp)$color <- rep('black', length(V(gtemp)))
+V(gtemp)$color[which.max(degree(g))] <- 'red'
+V(gtemp)$color[which.max(betweenness(g))] <- 'red'
+weighted_betweeness <- betweenness(g, v= V(g), directed = FALSE, weights = E(g)$weight)
+V(gtemp)$color[which.max(weighted_betweeness)] <- 'red'
+
+rs <- rep(0.5, length(V(gtemp)))
+rs[which.max(degree(g))] <- 10
+plot(gtemp,vertex.size=2, vertex.frame.color=NA,vertex.label = NA,vertex.label.cex = 0.5,vertex.color= V(gtemp)$color,edge.width = E(gtemp)$weight*2)
+
+# Plot large graph
+g1.plot <- ggnet(gtemp, size = 0.5, color = "red", edge.size = "weights", edge.color = "green")
+g1.plot
+# Highest connected components
+components <- components(gtemp, mode = c("weak", "strong"))
+g1 <- delete.vertices(gtemp, components$membership!=components$membership[which.max(degree(gtemp))])
+max(degree(gtemp))
+plot(g1,vertex.size=0.5,vertex.frame.color=V(g1)$color,vertex.label = NA,vertex.label.cex = 0.5,vertex.color= 'black',edge.width = E(g1)$weight^1.2)
+#E(g1)
+
+
+## BREAKDOWN SIMULATION ----
+# Attack network using 5 strategies: ID, IB, IWB, IS, RD, RB, RWB, RS and CondBet, CondWBet
+# E(g)$weight <- 1 # For unweighted NW
+df <- attack_network_intentional(str = "CondWBet", 1, g, return_graph = F, save_graph=F)
+#df <- attack_network_intentional_step(str = "RB", step = 5, 1, g, return_graph = F)
+#df <- attack_network_random(20,0.05, 1, g, return_graph = F)
+
+#write.csv(df,file="~/Dropbox/Datamining/Network_python/output/company_nw_RB.csv")
+write.csv(df,file="sp500_2_CondWBetS.csv",row.names = F)
+write.csv(df,file="airport_CondWBetS.csv",row.names = F)
+write.csv(df,file="bitcoin_ID.csv",row.names = F)
+write.csv(df,file="bitcoin_CondWBetS.csv",row.names = F)
+
+write.csv(df,file="netscience_WBet.csv",row.names = F)
+
+write.csv(df,file="bitcoin_WBet.csv",row.names = F)
+
+write.csv(df,file="airport_all_RD.csv",row.names = F)
+
+df_all <- c()
+strategy_all <- c('ID', 'IB', 'IWB', 'IS', 'RD', 'RB', 'RWB', 'RS', 'CondBet', 'CondWBet')
+for (i in 1:length(strategy_all)){
+  tmp <- attack_network_intentional(strategy_all[i], 1, g, return_graph = F, save_graph=F)
+  tmp$Strategy <- strategy_all[i]
+  df_all <- rbind(df_all,tmp)
+}
+write.csv(df_all,file="airport_all.csv",row.names = F)
+write.csv(tmp,file="tmp_Cond_new.csv")  
+
+write.csv(df_all,file="netscience.csv")  
+write.csv(df_all,file="sp500_1.csv")  
+write.csv(df_all,file="sp500_2.csv")  
+write.csv(df_all,file="bitcoin.csv")
+
+write.csv(df_all,file="sp500_1b.csv")  
+write.csv(df_all,file="sp500_2b.csv")  
+
+# Viz graph with ggnet then reload igraph
+gtemp <- readRDS("sp500_1_RS/graph_temp_114.RData")
+gtemp <- readRDS("sp500_1_CondBet/graph_temp_210.RData")
+gtemp <- readRDS("sp500_2_RS/graph_temp_14.RData")
+gtemp <- readRDS("sp500_2_CondWBet/graph_temp_14.RData")
+gtemp <- readRDS("netscience_CondWBet/graph_temp_64.RData")
+gtemp <- readRDS("bitcoin_RS/graph_temp_360.RData")
+gtemp <- readRDS("bitcoin_CondBet/graph_temp_720.RData")
+gtemp <- readRDS("airport_RS/graph_temp_10.RData")
+gtemp <- readRDS("airport_CondBet/graph_temp_40.RData")
+
+gtemp <- readRDS("netscience_RS/graph_temp_1440.RData")
+gtemp <- readRDS("airport_all_RD/graph_temp_952.RData")
+
+library(ggnet)  # Manually increase the weight in igraph_to_network() if needed
+# Node color
+ncol <- rep("blue",length(V(gtemp)))
+weighted_betweeness <- betweenness(gtemp, v= V(gtemp), directed = FALSE, weights = 1/E(gtemp)$weight)
+g_binary <- gtemp
+E(g_binary)$weight <- 1
+between <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NULL,nobigint = TRUE, normalized = FALSE)
+strength <- strength(gtemp, v = V(gtemp), mode = c("all"),loops = F)
+
+ncol[which.max(strength)] <- "red"
+ncol[which.max(weighted_betweeness)] <- "green"
+ncol[which.max(between)] <- "purple"
+#
+deg <- degree(gtemp)
+deg[which.max(weighted_betweeness)]  # 163
+deg[which.max(between)]  # 27
+between[which.max(weighted_betweeness)]  # 163
+between[which.max(between)]  # 27
+weighted_betweeness[which.max(weighted_betweeness)]  # 163
+weighted_betweeness[which.max(between)]  # 27
+plot(between,weighted_betweeness,log='xy')
+
+g1.plot <- ggnet2(igraph_to_network(gtemp), size = 0.5, node.color = ncol, edge.size = "weights")
+g1.plot
+# Load igraph version
+detach(package:sna, unload=TRUE)
+detach(package:network, unload=TRUE)
+detach(package:igraph, unload=TRUE)
+# IGRAPH FIRST
+library(igraph)
+
+# Highest connected components
+components <- components(gtemp, mode = c("weak", "strong"))
+plot_power(components$csize,20)
+
+
+## Degree distribution ----
+hist(degree(g))
+x <- hist(degree(g), breaks = c(0,50,100,150,200,300))
+plot(x$mids,x$counts,log="xy")
+
+
+## SP500_2 @ RB_0.50 - High weight nodes ----
+E(gtemp)
+E(gtemp)$weight
+top_weight_edge <- E(gtemp)[sort(E(gtemp)$weight, decreasing = T, index.return = T)$ix[1:5]]
+top_weight_edge
+tmp <- union(ends(gtemp,top_weight_edge)[,1],ends(gtemp,top_weight_edge)[,2])
+write.csv(tmp, file = 'SP500_2_high_weight_RB0p50.csv')
+
+node_m_temp <- node_measures(gtemp)
+# write.csv(node_m_temp, file="node_SP500_2_RB_0.50.csv")
+
+## SP500_1 @ IWB_0.50 - High IW nodes ----
+top_init_weight_edge <- E(gtemp)[sort(E(gtemp)$weight, decreasing = T, index.return = T)$ix[1:5]]
+top_init_weight_edge
+tmp <- union(ends(gtemp,top_init_weight_edge)[,1],ends(gtemp,top_init_weight_edge)[,2])
+color <- rep('black',length(V(gtemp)))
+color[V(gtemp)$name %in% tmp] <- "red"
+plot(gtemp,vertex.size=1., vertex.frame.color=NA,vertex.label = NA,vertex.label.cex = 0.5,vertex.color= color,edge.width = E(gtemp)$weight*1.5)
+
+node_m_temp <- node_measures(gtemp)
+# write.csv(node_m_temp, file="node_SP500_2_RB_0.50.csv")

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Các mô hình lan truyền và phòng ngừa dịch bệnh | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Các mô hình lan truyền và phòng ngừa dịch bệnh | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Các mô hình lan truyền và phòng ngừa dịch bệnh | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Nguyễn Quang" />
+
+
+<meta name="date" content="2020-04-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="literature.html"/>
+<link rel="next" href="applications.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><i class="fa fa-check"></i><b>4</b> Các mô hình lan truyền và phòng ngừa dịch bệnh</a><ul>
+<li class="chapter" data-level="4.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-lan-truyn"><i class="fa fa-check"></i><b>4.1</b> Các mô hình lan truyền</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-c-in"><i class="fa fa-check"></i><b>4.1.1</b> Mô hình lan truyền cổ điển:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-lan-truyn-theo-mang-lui"><i class="fa fa-check"></i><b>4.1.2</b> Mô hình lan truyền theo mạng lưới:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-phuong-phap-mo-phong"><i class="fa fa-check"></i><b>4.1.3</b> Các phương pháp mô phỏng:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#cac-mo-hinh-phong-nga"><i class="fa fa-check"></i><b>4.2</b> Các mô hình phòng ngừa</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-tiem-nga-immunization-model"><i class="fa fa-check"></i><b>4.2.1</b> Mô hình tiêm ngừa (immunization model)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#mo-hinh-cach-ly-xa-hi"><i class="fa fa-check"></i><b>4.2.2</b> Mô hình cách ly xã hội</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html"><a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#tham-khao"><i class="fa fa-check"></i><b>4.3</b> Tham khảo:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Các mô hình lan truyền và phòng ngừa dịch bệnh</h1>
+<div id="cac-mo-hinh-lan-truyn" class="section level2">
+<h2><span class="header-section-number">4.1</span> Các mô hình lan truyền</h2>
+<div id="mo-hinh-lan-truyn-c-in" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Mô hình lan truyền cổ điển:</h3>
+<p>Mô hình lan truyền được Kermack và McKendrick [1] phát triển đầu tiên vào năm 1927, dựa trên lý thuyết trường trung bình động (dynamic mean-field theory). Giả thuyết cơ bản của mô hình này là mỗi cá nhân tương tác với tất cả các cá nhân khác trong xã hội một cách ngẫu nhiên giống nhau. Xác suất nhiễm bệnh, khỏi bệnh,… của mỗi cá nhân là giống nhau và tỷ lệ với tỷ lệ trung bình chung của xã hội. Chi tiết của mô hình này có thể tìm đọc trên <a href="https://en.wikipedia.org/wiki/Mathematical_modelling_of_infectious_disease">Wikipedia</a> hoặc trong <a href="http://vinif.org/vi/khoa-hoc-thuong-thuc/read/1/mo-hinh-du-bao-ngan-han-va-dai-han-kha-nang-lan-rong-cua-dich-2019-ncov-tu-vu-han-o-pham-vi-trung-quoc-va-quoc-te">bài viết</a> của TS. Hoàng Ngọc Thạch và TS. Phan Thị Hà Dương (VinIF) với các tham số cập nhật cho dịch bệnh Covid-19. Ở đây tôi tóm lược một số kết quả chính của mô hình cổ điển như sau:</p>
+<p>Một tập hợp N (cố định) cá nhân/người dân có thể ở trong một số trạng thái xác định là: + Có khả năng mắc bệnh (<strong>S</strong>usceptible) + Nhiễm bệnh và có thể lây cho người khác (<strong>I</strong>nfected) + Không còn khả năng mắc bệnh (<strong>R</strong>emoved hay Recovered - đã chữa khỏi hoặc đã chết).</p>
+<p>Có thể mô phỏng quá trình chuyển đổi trạng thái theo nhiều cách, trong đó 2 mô hình phổ biến nhất là: * SIS:</p>
+<ul>
+<li>Một cá nhân từ <strong>S</strong> có thể bị nhiễm bệnh và chuyển sang <strong>I</strong> với xác suất <span class="math inline">\(\alpha\)</span> trong một đơn vị thời gian tỷ lệ với tỷ lệ nhiễm bệnh hiện tại: <span class="math inline">\(\alpha = \beta\frac{I}{N}\)</span>,</li>
+</ul>
+<p>trong đó <span class="math inline">\(I\)</span> là số người bị nhiễm hiện tại và <span class="math inline">\(\beta\)</span> gọi là tỷ lệ nhiễm bệnh (infection rate). Phương trình này áp dụng như nhau cho mỗi cá nhân và dựa trên giả thuyết mỗi cá nhân tiếp xúc với tất cả mọi người trong xã hội với xác suất như nhau.</p>
+<ul>
+<li>Một cá nhân từ <strong>I</strong> có thể được chữa khỏi và chuyển sang <strong>S</strong> với xác suất <span class="math inline">\(\mu\)</span> trong một đơn vị thời gian, với giả thuyết việc chữa bệnh được áp dụng như nhau cho mọi người bệnh.</li>
+</ul>
+<p>Kết hợp lại chúng ta có thể mô tả quá trình động lực của số nhiễm bệnh (<strong>I</strong>) và khỏe mạnh (<strong>S</strong>) bằng các phương trình vi phân xác định như sau :</p>
+<span class="math display" id="eq:SIS1">\[\begin{equation} 
+  \frac{dI}{dt} = S\times\beta \frac{I}{N}-\mu I
+  \tag{4.1}
+\end{equation}\]</span>
+<span class="math display" id="eq:SIS2">\[\begin{equation} 
+  \frac{dS}{dt} = -I\times\beta \frac{S}{N}+\mu I
+  \tag{4.2}
+\end{equation}\]</span>
+<p>Phương trình <a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#eq:SIS1">(4.1)</a> và <a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#eq:SIS2">(4.2)</a> có thể hiểu là xác suất một người khỏe bị nhiễm bệnh <span class="math inline">\(I/S\)</span> bằng <span class="math inline">\(\beta\)</span> nhân tỷ lệ nhiễm trung bình trong cộng đồng. Xác suất một người nhiễm khỏi bệnh <span class="math inline">\(S/I\)</span> bằng <span class="math inline">\(\mu\)</span></p>
+<p>(mặc dù các quá trình <span class="math inline">\(S -&gt; I -&gt; S\)</span> là ngẫu nhiên nhưng cách tiếp cận trên cho phép rút gọn lại thành phương trình xác định)</p>
+Một thông số quan trọng là một người bệnh làm lây nhiễm thêm cho bao nhiêu người trong một đơn vị thời gian có thể biểu diễn là:
+<span class="math display" id="eq:SIS2">\[\begin{equation*} 
+  R = \frac{dI^*}{Idt} = \beta \frac{S}{N}
+  \tag{4.2}
+\end{equation*}\]</span>
+<p>trong đó <span class="math inline">\(I^*\)</span> là số lây nhiễm mới.</p>
+<p>Trong giai đoạn đầu của dịch bệnh khi <span class="math inline">\(S\approx N\)</span> thì các phương trình có thể được rút gọn xấp xỉ và ta có thể định nghĩa <span class="math inline">\(R_0 = \frac{\beta}{\mu}\)</span> gọi là Hệ số lây nhiễm cơ bản. Đây là số ca nhiễm F1 gây ra bởi một ca nhiễm F0 trong cộng đồng trong một đơn vị thời gian. Kết quả chính của hệ phương trình là:</p>
+<ul>
+<li>Nếu <span class="math inline">\(R_0 &gt; 1\)</span> thì dịch bệnh sẽ bùng phát</li>
+<li>Nếu <span class="math inline">\(R_0 &lt; 1\)</span> thì dịch bệnh sẽ tự tiêu biến</li>
+<li>Nếu <span class="math inline">\(R_0 = 1\)</span> thì dịch bệnh ở trạng thái dừng đặc hữu (endemic). Với số bệnh là hằng số mà không cần tác động</li>
+</ul>
+<p>Ở Việt Nam hiện nay một số bệnh nhân F0 có thể tiếp xúc lên đến <strong>hơn 200 lần</strong>. Giả sử trung bình các bệnh nhân F0 tiếp xúc 30 người trước khi bị phát hiện và nếu tỷ lệ nhiễm bệnh chỉ là 10% thì <span class="math inline">\(\beta = 30* 10\% = 3\)</span>. Với giá trị <span class="math inline">\(\mu &lt; 1\)</span> thì <span class="math inline">\(R_0 &gt; 3\)</span> và nguy cơ gây ra bùng phát là rất cao.</p>
+Kết quả giải hệ phương trình trên cho toàn bộ quá trình động lực như sau:
+<div class="figure" style="text-align: center"><span id="fig:SIS"></span>
+<img src="images/SIS.png" alt="Kết quả giải hệ SIS - nguồn: Wikipedia" width="50%" />
+<p class="caption">
+Figure 4.1: Kết quả giải hệ SIS - nguồn: Wikipedia
+</p>
+</div>
+<ul>
+<li>SIR: một cá nhân từ <strong>S</strong> có thể bị nhiễm bệnh và chuyển sang <strong>I</strong> và một cá nhân từ <strong>I</strong> có thể được chữa khỏi (và không thể lây nhiễm tiếp) hoặc chết đi và chuyển sang <strong>R</strong>. Cơ chế tương tự như SIS trong đó phân biệt rõ hơn trạng thái <strong>R</strong>. (Trong SIS thì <strong>R</strong> ẩn trong <strong>S</strong>). Dưới đây là kết quả giải hệ SIR từ nguồn <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology">Wikipedia</a></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:SIR"></span>
+<img src="images/SIR.png" alt="Kết quả giải hệ SIR - nguồn: Wikipedia" width="50%" />
+<p class="caption">
+Figure 4.2: Kết quả giải hệ SIR - nguồn: Wikipedia
+</p>
+</div>
+<p>Nhìn chung, kết quả từ các mô hình cổ điển SIS và SIR cho thấy trong giai đoạn đầu, tỷ lệ nhiễm (cho SIS) và chết (cho SIR) sẽ tăng theo hàm mũ và đạt ngưỡng bão hòa sau một thời gian. Ngưỡng này thường sẽ rất cao lên đến nhiều chục % trong dân số. Ở đó số lượng người khỏe còn quá ít nên số lượng nhiễm mới bằng số lượng khỏi (<span class="math inline">\(\beta\ S = \mu I\)</span>) hay còn gọi là <strong>miễn dịch cộng đồng</strong>.</p>
+</div>
+<div id="mo-hinh-lan-truyn-theo-mang-lui" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Mô hình lan truyền theo mạng lưới:</h3>
+<p>Các giả thuyết rằng mỗi cá nhân giống nhau và giao tiếp ngẫu nhiên đều trong toàn xã hội của các mô hình cổ điển là khá đơn giản. Trên thực tế, mỗi người có mạng lưới tương tác xã hội của riêng mình. Phần lớn các cá nhận chỉ tương tác với một số lượng hạn chế người khác, trong khi đó có một phần nhỏ cá nhân tương tác với rất nhiều người khác. Dựa trên mô hình mạng lưới, Diekmann [2] cho rằng Hệ số lây nhiễm cơ bản <span class="math inline">\(R_0\)</span> cần phải điều chính tính đến cấu trúc của mạng lưới tương tác.</p>
+<div class="figure" style="text-align: center"><span id="fig:network1"></span>
+<img src="images/bitcoin_LCC.png" alt="Hình ảnh mô tả một mạng lưới tương tác xã hội - nguồn: tác giả" width="80%" />
+<p class="caption">
+Figure 4.3: Hình ảnh mô tả một mạng lưới tương tác xã hội - nguồn: tác giả
+</p>
+</div>
+<p>Mạng lưới tương tác xã hội cũng giống như nhiều mạng lưới phức hợp khác (“complex networks”) với nhiều đặc trưng riêng biệt, trong đó các quan trọng nhất về cấu trúc là:</p>
+<ul>
+<li>Tính phân bố bậc: Bậc k - hay số tương tác của mỗi cá nhân - thường phân bố theo dạng hàm mũ, phản ánh tính khác biệt về sự tương tác rất lớn: một số cá nhân nhỏ tương tác với rất nhiều cá nhân khác trong khi phần lớn các cá nhân chỉ tương tác với một số nhỏ cá nhân khác.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:network1dist"></span>
+<img src="images/bitcoin_degree_dist_2.png" alt="Phân phối bậc của các cá nhân trong mạng lưới trên - nguồn: tác giả" width="50%" />
+<p class="caption">
+Figure 4.4: Phân phối bậc của các cá nhân trong mạng lưới trên - nguồn: tác giả
+</p>
+</div>
+<ul>
+<li>Tính phân nhóm: Mạng tương tác xã hội thường phân cụm thành những nhóm riêng biệt. Phần lớn các cá nhân chỉ tương tác với những cá nhân trong cùng một nhóm, một phần nhỏ các cá nhân tương tác với những cá nhân trong nhiều nhóm khác nhau. Các các nhân này mang tính liên kết rất cao và có thể, nhưng không nhất thiết, là các cá nhân có bậc cao hoặc rất cao.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:network2"></span>
+<img src="images/public-figure.png" alt="Một mạng lưới xã hội với tính phân nhóm cao - nguồn: [3]" width="60%" />
+<p class="caption">
+Figure 4.5: Một mạng lưới xã hội với tính phân nhóm cao - nguồn: [3]
+</p>
+</div>
+<p>Một trong những phát triển đầu tiên của mô hình này do Pastor-Satorras and Vespignani (2001) đề xuất [4], kế thừa trên lý thuyết trường trung bình động nhưng xét sự khác nhau của các cá nhân theo số bậc tương tác k, gọi là “degree-based mean-field theory” (DBMF). Theo đó, các cá nhân được mô tả khác nhau theo số tương tác k mà họ có, và phương trình <a href="cac-mo-hinh-lan-truyn-va-phong-nga-dich-bnh.html#eq:SIS1">(4.1)</a> được viết lại như sau cho mỗi giá trị bậc k:</p>
+<span class="math display" id="eq:DBMF1">\[\begin{equation} 
+  \frac{dI_k}{dt} = \beta k [1-I_k]\sum_{k&#39;} P[k&#39;|k]\times \frac{I_{k&#39;}}{N} -\mu I_k
+  \tag{4.3}
+\end{equation}\]</span>
+<p>Dựa theo biểu thức đầu tiên của vế phải phương trình trên ta thấy một cá nhân khỏe có bậc k có thể bị nhiễm với xác suất là tích của:</p>
+<ul>
+<li><p>k: số tương tác anh ta có</p></li>
+<li><p>Tổng của <span class="math inline">\(P[k&#39;|k]\)</span>: Xác suất anh ta có liên kết với một cá nhân có bậc k’ khác và <span class="math inline">\(\frac{I_{k&#39;}}{N}\)</span>: Tỷ lệ cá nhân có bậc k’ bị nhiễm</p></li>
+</ul>
+<p>Dựa trên cấu trúc của mạng lưới chúng ta có thể ước lượng <span class="math inline">\(P[k&#39;|k]\)</span> và giải hệ trên một cách xấp xỉ bởi phương pháp phân tích trung bình tuyến tính [6] (lời giải chính xác không khả thi). Kết quả chính của mô hình này là điều kiện xảy ra bùng phát dịch (điểm tới hạn) nếu:</p>
+<p><span class="math inline">\(R_0 = \frac{\beta}{\mu} &gt; \frac{&lt;k&gt;}{&lt;k^2&gt;}\)</span></p>
+<p>(<span class="math inline">\(&lt;&gt;\)</span> là ký hiệu của kỳ vọng, giả thiết các nút không tương quan (uncorrelated network)).</p>
+<p>Trong hình vẽ 4.3 tôi lấy ví dụ một mạng xã hội nhỏ gồm 6005 nút. Các dữ liệu về tương tác xã hội thực không hoàn toàn giống mạng xã hội và không sẵn có, do vậy kết quả có thể khác nhiều. Với mạng lưới trên ta có thể tính các thông số mạng là:</p>
+<ul>
+<li><p><span class="math inline">\(&lt;k&gt; = 7.15\)</span></p></li>
+<li><p><span class="math inline">\(&lt;k^2&gt; = 79\)</span></p></li>
+<li><p><span class="math inline">\(\frac{&lt;k&gt;}{&lt;k^2&gt;} = 0.012\)</span></p></li>
+</ul>
+<p>Giả sử tỷ lệ chữa khỏi <span class="math inline">\(\mu = 0.4\)</span> thì xác suất nhiễm bệnh khi tiếp xúc <span class="math inline">\(\beta\)</span> cần phải dưới giá trị <span class="math inline">\(\mu\frac{&lt;k&gt;}{&lt;k^2&gt;} = 0.4*0.012 \approx 0.5\%\)</span> và rất không khả thi.</p>
+<p>Trong trường hợp cách ly các tương tác (nói rõ hơn trong phần sau) chúng ta sẽ có được mạng lưới mới với số cạnh tối thiểu:</p>
+<div class="figure" style="text-align: center"><span id="fig:network3"></span>
+<img src="images/bitcoin_delete_edges.png" alt="Một mạng lưới xã hội với tính phân nhóm cao - nguồn: [3]" width="80%" />
+<p class="caption">
+Figure 4.6: Một mạng lưới xã hội với tính phân nhóm cao - nguồn: [3]
+</p>
+</div>
+<p>Khi đó các thông số mạng trở thành:</p>
+<ul>
+<li><p><span class="math inline">\(&lt;k&gt; = 1.27\)</span></p></li>
+<li><p><span class="math inline">\(&lt;k^2&gt; = 3.45\)</span></p></li>
+<li><p><span class="math inline">\(\frac{&lt;k&gt;}{&lt;k^2&gt;} = 0.289\)</span></p></li>
+</ul>
+<p>Giả sử tỷ lệ chữa khỏi <span class="math inline">\(\mu = 0.4\)</span> thì xác suất nhiễm bệnh khi tiếp xúc <span class="math inline">\(\beta\)</span> cần phải dưới giá trị <span class="math inline">\(\mu\frac{&lt;k&gt;}{&lt;k^2&gt;} = 0.4*0.289 \approx 11.5\%\)</span>. Xác suất này dễ đạt được hơn và cao hơn ngưỡng trước khi cách ly hơn 20 lần.</p>
+</div>
+<div id="cac-phuong-phap-mo-phong" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Các phương pháp mô phỏng:</h3>
+<p>Việc xây dựng các mô hình gần với thực tế hơn thường sẽ khiến cho các phương trình trở nên phức tạp và rất khó giải. Khi đó các phương pháp mô phỏng sẽ trở nên đặc biệt hữu ích. Ví dụ với một dữ liệu mạng lưới cho trước chúng ta có thể ước lượng xác suất bùng phát dịch bằng cách cho lan truyền giả định lặp lại nhiều lần, với rất nhiều tham số khác nhau. (to be continued)</p>
+</div>
+</div>
+<div id="cac-mo-hinh-phong-nga" class="section level2">
+<h2><span class="header-section-number">4.2</span> Các mô hình phòng ngừa</h2>
+<p>Các mô hình trong phần trên giả định việc lan truyền tự nhiên và không có tác động từ bên ngoài. Trong thực tế, chúng ta luôn mong muốn ngăn chặn số người bị nhiễm bệnh và tác động vào việc lan truyền. Các mô hình phòng ngừa được đặt ra nhằm tối ưu hiệu quả của tác động hoặc giảm thiểu chi phí cho một mục tiêu xác định. (to be continued)</p>
+<div id="mo-hinh-tiem-nga-immunization-model" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Mô hình tiêm ngừa (immunization model)</h3>
+<p>Trong trường hợp đã có vaccin phòng bệnh thì tiêm chủng mở rộng là biện pháp an toàn nhất (nếu có thể). Đây chính là các chương trình tiêm chủng cho mọi trẻ em đã được áp dụng. Ở một số nơi khác như các nước châu Phi, số lượng vaccin có ít nên các mô hình immunization có thể được sử dụng để xác định ra đối tượng vaccin có hiệu quả nhất trong việc ngăn ngừa lan truyền trong cộng đồng. (to be continued)</p>
+</div>
+<div id="mo-hinh-cach-ly-xa-hi" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Mô hình cách ly xã hội</h3>
+<p>Trong trường hợp chưa có vaccin phòng bệnh thì biện pháp chính là dùng các dụng cụ bảo hộ tối đa (tiếp xúc nhưng giảm thiểu xác suất lây nhiễm), tương ứng việc giảm hệ số <span class="math inline">\(\beta\)</span> ban đầu, hoặc trong trường hợp bất khả kháng (không xác định được ai đang nhiễm và sẽ nhiễm cho ai) thì phá vỡ mạng lưới tương tác xã hội (cách ly) là biện pháp cuối cùng. Cách phá vỡ mạng lưới có thể bao gồm: + Phá vỡ nút (cá nhân) bằng cách ly tập trung + Phá vỡ cạnh (phá vỡ tương tác) bằng cách ly xã hội</p>
+</div>
+</div>
+<div id="tham-khao" class="section level2">
+<h2><span class="header-section-number">4.3</span> Tham khảo:</h2>
+<p>[1] W. O. Kermack and A. G. McKendrick, Contributions to the mathematical theory of epidemics part I, Proc. R. Soc. Edinb., A115, 700–721, 1927.</p>
+<p>[2] Diekmann, O., H. Heesterbeek, and T. Britton (2012), Math- ematical Tools for Understanding Infectious Disease Dy- namics (Princeton University Press, Princeton, USA).</p>
+<p>[3] Quang Nguyen, Hanh-Duyen Dinh , Thi-Trang Le , Thanh-Trung Nguyen , Michele Bellingeri, “Structure and Robustness of Facebook’s pages networks” (Applied Network Science - accepted)</p>
+<p>[4] Pastor-Satorras, R., and A. Vespignani (2001b), Phys. Rev. Lett. 86, 3200.</p>
+<p>[5] Romualdo Pastor-Satorras, Claudio Castellano, Piet Van Mieghem, Alessandro Vespignani, “Epidemic processes in complex networks”. Review of Modern Physics 87(3) 2014</p>
+<p>[6] Bogun ̃a ́, M., and R. Pastor-Satorras (2002), Phys. Rev. E 66, 047104.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["ComplexNetwork.pdf", "ComplexNetwork.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"toc_depth": 4
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
