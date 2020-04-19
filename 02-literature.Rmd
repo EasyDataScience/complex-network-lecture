@@ -1,6 +1,6 @@
 # Tính bền vững của mạng lưới
 
-Tính bền vững của mạng lưới ("Network Roburstness/Resilience") là một đối tượng nghiên cứu đầu tiên trong nhánh các quá trình động lực. Do các Hệ phức hợp rất phổ biến trong thực tế, nghiên cứu về sự bền vững của chúng có ý nghĩa ứng dụng thực tế cao. Một số câu hỏi có thể giải đáp là:
+Tính bền vững ("Robustness/Resilience")  của mạng lưới là tính chất được nghiên cứu đầu tiên nằm trong các chủ đề về các quá trình động lực. Do các Hệ phức hợp rất phổ biến trong thực tế, nghiên cứu về sự bền vững của chúng có ý nghĩa ứng dụng thực tế cao. Một số câu hỏi có thể giải đáp là:
 
 - Mạng Internet có bền vững trước những sự cố hỏng hóc hay không? Nếu bị mất đi một số đỉnh (router) thì có thể hoạt động bình thường được không?
 - Một số sân bay bị đóng/tấn công thì ảnh hưởng đến bao nhiêu lưu lượng hành khác, có dẫn đến ngưng trệ dây chuyền hay không?
@@ -23,13 +23,13 @@ Cho một mạng lưới hai chiều hình vuông với N điểm giao mỗi chi
 
 Hình vẽ sau thể hiện các điểm giao là các ô vuông:
 
-```{r percolation_2D, fig.align = 'center', out.width = "100%", fig.cap = "Biểu diễn ví dụ thẩm thấu 2 chiều với các xác suất khác nhau và kích thước khác nhau", echo = FALSE}
+```{r percolation2D, fig.align = 'center', out.width = "100%", fig.cap = "Biểu diễn ví dụ thẩm thấu 2 chiều với các xác suất khác nhau và kích thước khác nhau", echo = FALSE}
 knitr::include_graphics("images/percolation_2D.png")
 ```
 
 Có thể thấy ngay là với $p$ càng lớn thì kích thước của LCC càng lớn. Nhưng khác với trực giác chúng ta hình dung, kích thước của LCC sẽ không tăng một cách tuyến tính theo $p$. Nếu mô phỏng với N rất lớn (tiến tới vô cùng), kích thước LCC $L_{\infty}$ sẽ gần bằng 0 với $p$ nhỏ, sau đó đột ngột tăng lên tại một điểm tới hạn gọi là $p_c$
 
-```{r p_c_2D, fig.align = 'center', out.width = "50%", fig.cap = "Thay đổi kích thước của LCC theo xác suất lấp đầy p, với N lớn. Nguồn: Kim Christensen - “Percolation Theory”", echo = FALSE}
+```{r pc2D, fig.align = 'center', out.width = "50%", fig.cap = "Thay đổi kích thước của LCC theo xác suất lấp đầy p, với N lớn. Nguồn: Kim Christensen - “Percolation Theory”", echo = FALSE}
 knitr::include_graphics("images/p_c_2D.png")
 ```
 
@@ -166,7 +166,7 @@ Như vậy có thể kết luận là nếu $\gamma < 3$ và $K$ đủ lớn th�
 knitr::include_graphics("images/bitcoin_initial_random.png")
 ```
 
-Mô hình này có thể áp dụng được cho rất nhiều mạng thực tế và dự báo được tính bền vững trước những hỏng hóc ngẫu nhiên. Tuy nhiên tính bền vững của các mạng còn có thể được đánh giá ở góc độ khác như phần sau. 
+Đa số các mạng lưới thực tế đều có tính bền vững cao trước những hỏng hóc/phá hủy có tính ngẫu nhiên như vậy. Mô hình trên có thể áp dụng được cho rất nhiều mạng thực tế và dự báo được tính bền vững trước những hỏng hóc ngẫu nhiên. Tuy nhiên tính bền vững của các mạng còn có thể được đánh giá ở góc độ khác như phần sau. 
 
 ### Tính thẩm thấu có chủ đích ("intentional attack")
 Thay vì ngẫu nhiên, các hệ phức hợp trên thực tế có thể bị phá hủy một cách có chủ đích. Một trong những cách thức được nghĩ đến đầu tiên là phá hủy những đỉnh có số bậc cao nhất. Câu hỏi đặt ra là phá đến báo nhiêu phần trăm số đỉnh có bậc cao nhất từ trên xuống thì mạng bị phá hủy hay không còn tồn tại "giant component"?
@@ -228,12 +228,24 @@ Phương trình này có thể được giải số để tìm ra $\tilde{K}(m,\
 
 Kết quả mô phỏng cho thấy $q_c(m,\gamma)$ có giá trị rất gần với cách tiếp cận trên [4]. 
 
-(Hình vẽ LCC theo q theo 2 cách phá vỡ)
+```{r bitcoinRandomRD, fig.align = 'center', out.width = "100%", fig.cap = "Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 960 đỉnh (16%) ngẫu nhiên thìmạng vẫn tồn tại 'giant component' (b). Nhưng nếu phá hủy 960 đỉnh có số bậc cao nhất thì mạng lưới đã bị phá hủy về cơ bản (không tồn tại một thành phần liên kết nào có độ lớn đủ lớn)", echo = FALSE}
+knitr::include_graphics("images/bitcoin_attack_random_degree2.png")
+```
 
 ## Mô phỏng tính bền vững của các Hệ phức hợp
-Trong các nghiên cứu tiếp theo, các nhà khoa học đã tìm cách phá hủy mạng lưới theo nhiều cách khác nhau. Trong đó, cách phá hủy dựa trên tính trung gian "betweenness" cho thấy hiệu quả hơn cả trong việc giảm kích thước của LCC. Ngoài ra, các yếu tố như trọng số, tính phân nhóm cũng được tính đến trong việc đánh giá tính bền vững của mạng lưới. Phá vỡ theo cạnh cũng được nghiên cứu và cho kết quả quan trọng.
+Trong các nghiên cứu tiếp theo, các nhà khoa học đã tìm cách phá hủy mạng lưới theo nhiều cách khác nhau với mục đích phá hủy nhanh nhất cấu trúc mạng, đo bởi kích thước của thành phần chính lớn nhất (phép đo phổ biến nhất). Trong đó, cách phá hủy dựa trên tính trung gian "betweenness" cho thấy hiệu quả hơn cả trong việc giảm kích thước của LCC [5,6]. 
 
-Các nghiên cứu này phần lớn được thực hiện bởi mô phỏng. Các mô hình cho phép dự báo $q_c$ trở nên khó khăn hơn với phép đo trung tâm như độ trung gian hay các yếu tố về phân nhóm, trọng số. 
+```{r NetAfterRemove, fig.align = 'center', out.width = "100%", fig.cap = "Một mạng lưới tài chính bị phá hủy bởi chiến thuật phá vỡ nút có bậc cao nhất (hàng trên) và theo tính trung gian cao nhất (hàng dưới)", echo = FALSE}
+knitr::include_graphics("images/NetAfterRemove.png")
+```
+
+Hơn nữa, một chiến thuật phá vỡ có thể dựa trên nhiều đặc tính của nút. Ví dụ như trong [8] chúng tôi đề xuất phá vỡ theo tính trung gian trong giai đoạn đầu, sau đó chuyển sang bậc ở giai đoạn cuối khi mạng lưới bị phân mảnh thành các nhóm nhỏ tách biệt (khi đó tính trung gian không còn nhiều ý nghĩa toàn cục).
+
+```{r Netscience2step, fig.align = 'center', out.width = "100%", fig.cap = "Mạng lưới cộng tác khoa học: ở giai đoạn đầu chiến thuật phá vỡ theo tính trung gian hiệu quả nhất khi phá vỡ từng thành phần lớn, ở giai đoạn cuối chỉ còn nhiều thành phần nhỏ thì chiến thuật phá vỡ theo bậc lại trở nên hiệu quả hơn. [8]", echo = FALSE}
+knitr::include_graphics("images/netscience_2_steps.png")
+```
+
+Ngoài ra, các yếu tố như trọng số, tính phân nhóm cũng được tính đến trong việc đánh giá tính bền vững của mạng lưới. Phá vỡ theo cạnh cũng được nghiên cứu và cho kết quả quan trọng. (to be continued)
 
 
 **Tham khảo:**
@@ -244,3 +256,12 @@ Các nghiên cứu này phần lớn được thực hiện bởi mô phỏng. C
 [3] R. Albert, H. Jeong, and A.-L. Barabási. Attack and error tolerance of complex networks. Nature, 406: 378, 2000.
 
 [4] R. Cohen, K. Erez, D. ben Avraham, S. Havlin, Breakdown of the internet under intentional attack, Phys. Rev. Lett. 86 (2001) 3682.
+
+[5] Wandelt, Sebastian, Xiaoqian Sun, Daozhong Feng, Massimiliano Zanin, and Shlomo Havlin. 2018. “A Comparative Analysis of Approaches to Network-Dismantling.” Scientific Reports.
+
+[6] Bellingeri, Michele, Davide Cassi, and Simone Vincenzi. 2014. “Efficiency of Attack Strategies on Complex Model and Real-World Networks.” Physica A: Statistical Mechanics and Its Applications.
+
+[7] Nguyen, Ngoc Kim Khanh and Quang Nguyen. 2018. “Resilience of Stock Cross-Correlation Network to Random Breakdown and Intentional Attack.” Pp. 553–61 in Studies in Computational Intelligence.
+
+[8] Q Nguyen, D. Cassi, M. Bellingeri, “Conditional attack strategy for real-world complex networks”, 530-121561. Physica A: Statistical Mechanics and Its Applications.
+

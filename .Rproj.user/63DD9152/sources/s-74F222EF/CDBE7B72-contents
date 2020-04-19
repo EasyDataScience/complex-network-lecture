@@ -110,7 +110,7 @@ plot_power <- function(x,k){
 plot_power(deg,10)
 ```
 
-```{r USAirport_500_deg, fig.align = 'center', out.width = "80%", fig.cap = "Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác", echo = FALSE}
+```{r USAirport500deg, fig.align = 'center', out.width = "80%", fig.cap = "Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác", echo = FALSE}
 knitr::include_graphics("images/USAirport_500_deg.png")
 ```
 
@@ -156,7 +156,7 @@ Một hiện tượng nổi tiếng "Six degrees of separation" phát hiện b�
 
 Trong một ví dụ khác, chúng ta có mạng lưới cộng tác xuất bản chung của các nhà khoa học mạng lưới vào năm 2006. Mạng lưới bao gồm 1589 nhà khoa học, trong đó thành phần lớn nhất liên kết 379 nhà khoa học:
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE,fig.cap = "Thành phần lớn nhất của mạng lưới cộng tác với 379 nhà khoa học"}
 library("multiplex")
 library("igraph")
 file <- "/Volumes/P/DATA/NETWORK/ca-netscience/netscience.gml"
@@ -195,7 +195,7 @@ Dựa trên đường đi ngăn nhất, tính trung gian ("betweenness") của m
 
 Hình vẽ dưới đây biểu diễn kích thước mỗi đỉnh bằng tính trung gian cho đồ thị 34 thành viên một câu lạc bộ karate do Wayne Zachary thu thập năm 1977 (một bộ dữ liệu rất phổ biến trong nghiên cứu mạng lưới trước đây):
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Biểu diễn tính trung gian bởi kích thước đỉnh (mạng karate)"}
 library("multiplex")
 library("igraph")
 file <- "/Volumes/P/DATA/NETWORK/karate/karate.gml"
@@ -220,7 +220,7 @@ Ngoài các tính chất đã kể trên của mạng lưới là 1) phân bố 
 
 Ví dụ sau là sự phân nhóm theo thuật toán "greedy optimization" trên mạng lưới 379 nhà khoa học nói trên:
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Ví dụ về tính phân nhóm của mạng karate nói trên."}
 library("multiplex")
 library("igraph")
 file <- "/Volumes/P/DATA/NETWORK/karate/karate.gml"
@@ -246,4 +246,5 @@ Xác định nhóm trong mạng là một trong những bài toán quan trọng 
 W. W. Zachary, An information flow model for conflict and fission in small groups, Journal of Anthropological Research 33, 452-473 (1977).
 
 M. E. J. Newman, Finding community structure in networks using the eigenvectors of matrices, Preprint physics/0605087 (2006).
+
 

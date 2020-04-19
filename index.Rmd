@@ -18,7 +18,11 @@ biblio-style: apalike
 
 # Giới thiệu {#intro}
 
-Stephen Hawking đã từng nói trong thế kỷ trước "I think the next [21st] century will be the century of complexity. We have already discovered the basic laws] that govern matter and understand all the normal situations. We don’t know how the laws fit together, and what happens under extreme conditions. But I expect we will find a complete unified theory sometime this century. There is no limit to the complexity that we can build using those basic laws." [nguồn](https://en.wikiquote.org/wiki/Complexity) Tạm dịch là:
+Đây là một bài giảng nhỏ về Khoa học Hệ phức hợp, một ngành nghiên cứu đa ngành tương đối mới và có nhiều tính ứng dụng. Bài giảng còn đang trong bản thảo nên có nhiều thiếu sót, xin vui lòng góp ý về quang.nguyen@polytechnique.org. Các nghiên cứu mới của nhóm có thể tìm thấy ở đây](https://sites.google.com/view/quangnguyenwebsite/publications)
+
+Tài liệu bao gồm một số mã nguồn mở vẽ mạng lưới với ngôn ngữ R cùng một số bộ dữ liệu mẫu [tại đây](https://github.com/EasyDataScience/complex-network-lecture). Vui lòng trích dẫn nguồn dữ liệu ở cuối chương.
+
+Stephen Hawking đã từng nói trong thế kỷ trước *"I think the next [21st] century will be the century of complexity. We have already discovered the basic laws] that govern matter and understand all the normal situations. We don’t know how the laws fit together, and what happens under extreme conditions. But I expect we will find a complete unified theory sometime this century. There is no limit to the complexity that we can build using those basic laws."* [nguồn](https://en.wikiquote.org/wiki/Complexity) Tạm dịch là:
 
 Tôi cho rằng thế kỷ tới (21) sẽ là thế kỷ của hệ phức hợp. Chúng ta đã khám phá ra các định luật cơ bản chi phối vật chất và thông hiểu mọi hiện tượng thông thường, nhưng lại không hiểu các định luật đó tương thích với nhau như thế nào và điều gì sẽ xảy ra ở những thời điểm cực điểm? Tôi kỳ vọng là chúng ta sẽ tìm ra một lý thuyết thống nhất hoàn chỉnh trong thế kỷ tới. Với lý thuyết đó chúng ta có thể xây dựng những thứ có độ phức tạp vô hạn.
 
@@ -139,3 +143,17 @@ Dall’Asta, Luca, Alain Barrat, Marc Barthélemy, and Alessandro Vespignani. 20
 
 
 * Theo thầy Nguyễn Ái Việt [tổng hợp](https://www.facebook.com/aiviet.nguyen.9?__tn__=%2CdC-R-R&eid=ARAJ1vCKX01Y4m8vomc-RQMwqgoWWzWqDudM8pAkDrbitzWK5jUOfzJL7H-fi3lD-TLvTmejQqrdrGNC&hc_ref=ARTz8R9ntR0lsAhLWBjxkYsdR-84qhnvs4OSnd3F4WtMzfNjOk7-lgkzYbfHYRJiXVk&fref=nf) lại.
+
+#### Các bộ dữ liệu sử dụng
+
+- **Karate**: W. W. Zachary, An information flow model for conflict and fission in small groups, Journal of Anthropological Research 33, 452-473 (1977).
+
+- **SP500_1,2**: Nguyen, Quang, Hi-Duc Pham, David Cassi, and Michele Bellingeri. 2019. “Conditional Attack Strategy for Real-World Complex Networks.” Physica A: Statistical Mechanics and Its Applications.
+
+- **Netscience**: M.E.J.Newman, The structure and function of complex networks, SIAMRev. 45 (2003) 167–256.
+
+- **Bitcoin**: S. Kumar, F. Spezzano, V. Subrahmanian, C. Faloutsos, Edge weight pre- diction in weighted signed networks, in: Data Mining (ICDM), 2016 IEEE 16th International Conference on, IEEE, 2016, pp. 221–230.
+
+S. Kumar, B. Hooi, D. Makhija, M. Kumar, C. Faloutsos, V. Subrahma- nian, Rev2: Fraudulent user prediction in rating platforms, in: Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining, ACM, 2018, pp. 333–341.
+
+- **US 500 Airports**: Dall’Asta, Luca, Alain Barrat, Marc Barthélemy, and Alessandro Vespignani. 2006. “Vulnerability of Weighted Networks.” Journal of Statistical Mechanics: Theory and Experiment. 

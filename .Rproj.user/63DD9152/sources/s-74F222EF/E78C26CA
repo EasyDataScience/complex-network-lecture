@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587222761382.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E78C26CA",
+    "lastKnownWriteTime" : 1587223946,
+    "last_content_update" : 1587223946960,
+    "path" : "~/Dropbox/Network/WeightedNetwork/WeightedNetwork/WeightedNetwork_QN.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "54,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
+  <title>Chương 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta property="og:title" content="Chương 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta name="twitter:title" content="Chương 2 Giới thiệu về khoa học mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -131,7 +131,7 @@
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Giới thiệu về khoa học mạng lưới</h1>
+<h1><span class="header-section-number">Chương 2</span> Giới thiệu về khoa học mạng lưới</h1>
 <div id="cac-inh-nghia-co-ban" class="section level2">
 <h2><span class="header-section-number">2.1</span> Các định nghĩa cơ bản</h2>
 <div id="inh-nghia-mang-lui" class="section level3">
@@ -209,10 +209,10 @@ Bậc TB
 <p>Như vậy một sân bay trung bình chỉ có gần 6 đường bay nội địa? Con số trung bình này không phản ánh rõ bởi ở Mỹ có rất nhiều sân bay nhỏ chỉ kết nối với một vài sân bay chính gần đó. Có đến 74 sân bay chỉ kết nối duy nhất 1 sân bay khác (trong số 500 sân bay lớn), 107 sân bay kết nối với 2 sân bay khác, và sân bay kết nối nhiều nhất có 146 đường bay khác nhau, như thể hiện qua đồ thị tần số (histogram) dưới đây.</p>
 <p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Chúng ta có thể thấy các mạng thực tế thường có phân bố bậc rất rộng và không đối xứng, với rất nhiều đỉnh có số bậc nhỏ và một số ít đỉnh có số bậc rất lớn. Các dữ liệu thực nghiệm cho thấy phần lớn các phân phối này có dạng hàm mũ ở phần đuôi, với số mũ từ thông thường từ 2-3.</p>
-<div class="figure" style="text-align: center">
+<div class="figure" style="text-align: center"><span id="fig:USAirport500deg"></span>
 <img src="images/USAirport_500_deg.png" alt="Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác" width="80%" />
 <p class="caption">
-(#fig:USAirport_500_deg)Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác
+Figure 2.1: Bậc của mạng 500 sân bay tuân theo phân bố hàm mũ (phần đuôi) giống như nhiều mạng lưới thực tế khác
 </p>
 </div>
 </div>
@@ -223,7 +223,7 @@ Bậc TB
 <div class="figure"><span id="fig:unnamed-chunk-4"></span>
 <img src="ComplexNetwork_files/figure-html/unnamed-chunk-4-1.png" alt="Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)" width="672" />
 <p class="caption">
-Figure 2.1: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)
+Figure 2.2: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (màu đỏ), trung chuyển qua một sân bay khác (màu xanh)
 </p>
 </div>
 <ul>
@@ -231,7 +231,13 @@ Figure 2.1: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (m
 </ul>
 <p>Một hiện tượng nổi tiếng “Six degrees of separation” phát hiện bởi Frigyes Karinthy, viết lại bởi John Guare chỉ ra hai người bất kỳ trong xã hội có thể kết nối với nhau chỉ qua trung bình 6 người trung gian khác (xem <a href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">Wikipedia</a>). Đây là một con số nhỏ ngạc nhiên vào thời trước, và được mô tả thành hiện tượng <strong>thế giới nhỏ</strong> (“the small-world effect”).</p>
 <p>Trong một ví dụ khác, chúng ta có mạng lưới cộng tác xuất bản chung của các nhà khoa học mạng lưới vào năm 2006. Mạng lưới bao gồm 1589 nhà khoa học, trong đó thành phần lớn nhất liên kết 379 nhà khoa học:</p>
-<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-5-1.png" width="672" /> (chỉ những NKH có trên 15 liên kết mới hiển thị tên)</p>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="ComplexNetwork_files/figure-html/unnamed-chunk-5-1.png" alt="Thành phần lớn nhất của mạng lưới cộng tác với 379 nhà khoa học" width="672" />
+<p class="caption">
+Figure 2.3: Thành phần lớn nhất của mạng lưới cộng tác với 379 nhà khoa học
+</p>
+</div>
+<p>(chỉ những NKH có trên 15 liên kết mới hiển thị tên)</p>
 <p>Với mạng lưới này, Đường đi ngắn nhất trung bình là 6.0418673 hay nói cách khác, nếu ở trong mạng lưới này, bạn muốn liên kết với bất kỳ NKH nào khác qua các quen biết (đã xuất bản chung) thì trung bình cần đến 6 đường đi (hay 5 NKH giới thiệu).</p>
 <p>Một số phép đó khác liên quan đến đường đi và đường đi ngắn nhất bao gồm:</p>
 <ul>
@@ -245,7 +251,13 @@ Figure 2.1: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (m
 <h3><span class="header-section-number">2.2.3</span> Tính trung gian</h3>
 <p>Dựa trên đường đi ngăn nhất, tính trung gian (“betweenness”) của một đỉnh <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> là tổng số đường đi ngăn nhất giữa hai đỉnh khác <span class="math inline">\(i\)</span> mà đi qua <span class="math inline">\(i\)</span>. Tính trung gian là một phép đo rất quan trọng của mỗi đỉnh. Đỉnh có tính trung gian cao thường đóng vai trò kết nối cao trong một mạng lưới.</p>
 <p>Hình vẽ dưới đây biểu diễn kích thước mỗi đỉnh bằng tính trung gian cho đồ thị 34 thành viên một câu lạc bộ karate do Wayne Zachary thu thập năm 1977 (một bộ dữ liệu rất phổ biến trong nghiên cứu mạng lưới trước đây):</p>
-<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-6-1.png" width="672" /> Có thể thấy ngoài các đỉnh trung tâm có số liên kết cao cũng có tính trung gian cao, một số đỉnh ở vùng tiếp giáp giữa các nhóm cũng có tính trung gian cao, mặc dù số bậc không quá cao.</p>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="ComplexNetwork_files/figure-html/unnamed-chunk-6-1.png" alt="Biểu diễn tính trung gian bởi kích thước đỉnh (mạng karate)" width="672" />
+<p class="caption">
+Figure 2.4: Biểu diễn tính trung gian bởi kích thước đỉnh (mạng karate)
+</p>
+</div>
+<p>Có thể thấy ngoài các đỉnh trung tâm có số liên kết cao cũng có tính trung gian cao, một số đỉnh ở vùng tiếp giáp giữa các nhóm cũng có tính trung gian cao, mặc dù số bậc không quá cao.</p>
 <p>Với mạng có trọng số, mỗi đường đi ngắn nhất được tính theo trong số và tính trung gian trọng số là tổng giá trị của các đường đi ngắn nhất đi qua đỉnh.</p>
 </div>
 </div>
@@ -253,7 +265,13 @@ Figure 2.1: Ví dụ về một đường đi ngắn nhất giữa 2 sân bay (m
 <h2><span class="header-section-number">2.3</span> Tính phân nhóm</h2>
 <p>Ngoài các tính chất đã kể trên của mạng lưới là 1) phân bố bậc dạng hàm mũ và 2) tính chất “small-world”, các mạng thực tế thường có sự phân nhóm ít nhiều khác nhau, đặc biệt là các mạng xã hội.</p>
 <p>Ví dụ sau là sự phân nhóm theo thuật toán “greedy optimization” trên mạng lưới 379 nhà khoa học nói trên:</p>
-<p><img src="ComplexNetwork_files/figure-html/unnamed-chunk-7-1.png" width="672" /> Xác định nhóm trong mạng là một trong những bài toán quan trọng và có nhiều cách tiếp cận khác nhau. Tính phân nhóm ảnh hưởng quan trọng đến các quá trình động lực sau này của mạng lưới.</p>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="ComplexNetwork_files/figure-html/unnamed-chunk-7-1.png" alt="Ví dụ về tính phân nhóm của mạng karate nói trên." width="672" />
+<p class="caption">
+Figure 2.5: Ví dụ về tính phân nhóm của mạng karate nói trên.
+</p>
+</div>
+<p>Xác định nhóm trong mạng là một trong những bài toán quan trọng và có nhiều cách tiếp cận khác nhau. Tính phân nhóm ảnh hưởng quan trọng đến các quá trình động lực sau này của mạng lưới.</p>
 </div>
 <div id="cac-mo-hinh-xay-dng-mang-lui-ph-bin-to-be-continued" class="section level2">
 <h2><span class="header-section-number">2.4</span> Các mô hình xây dựng mạng lưới phổ biến (to be continued)</h2>

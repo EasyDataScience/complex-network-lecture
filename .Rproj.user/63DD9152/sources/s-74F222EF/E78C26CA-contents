@@ -243,7 +243,7 @@ gtemp <- readRDS("sp500_1_CondBet/graph_temp_210.RData")
 gtemp <- readRDS("sp500_2_RS/graph_temp_14.RData")
 gtemp <- readRDS("sp500_2_CondWBet/graph_temp_14.RData")
 gtemp <- readRDS("netscience_CondWBet/graph_temp_64.RData")
-gtemp <- readRDS("bitcoin_RS/graph_temp_360.RData")
+gtemp <- readRDS("~/Dropbox/Network/WeightedNetwork/WeightedNetwork/bitcoin_ID/graph_temp_960.RData")
 gtemp <- readRDS("bitcoin_CondBet/graph_temp_720.RData")
 gtemp <- readRDS("airport_RS/graph_temp_10.RData")
 gtemp <- readRDS("airport_CondBet/graph_temp_40.RData")
@@ -251,7 +251,6 @@ gtemp <- readRDS("airport_CondBet/graph_temp_40.RData")
 gtemp <- readRDS("netscience_RS/graph_temp_1440.RData")
 gtemp <- readRDS("airport_all_RD/graph_temp_952.RData")
 
-library(ggnet)  # Manually increase the weight in igraph_to_network() if needed
 # Node color
 ncol <- rep("blue",length(V(gtemp)))
 weighted_betweeness <- betweenness(gtemp, v= V(gtemp), directed = FALSE, weights = 1/E(gtemp)$weight)
@@ -273,6 +272,7 @@ weighted_betweeness[which.max(weighted_betweeness)]  # 163
 weighted_betweeness[which.max(between)]  # 27
 plot(between,weighted_betweeness,log='xy')
 
+library(ggnet)  # Manually increase the weight in igraph_to_network() if needed
 g1.plot <- ggnet2(igraph_to_network(gtemp), size = 0.5, node.color = ncol, edge.size = "weights")
 g1.plot
 # Load igraph version
