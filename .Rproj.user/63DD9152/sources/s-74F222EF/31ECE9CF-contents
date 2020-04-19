@@ -18,7 +18,7 @@ biblio-style: apalike
 
 # Giới thiệu {#intro}
 
-Đây là một bài giảng nhỏ về Khoa học Hệ phức hợp, một ngành nghiên cứu đa ngành tương đối mới và có nhiều tính ứng dụng. Bài giảng còn đang trong bản thảo nên có nhiều thiếu sót, xin vui lòng góp ý qua [email sau](quang.nguyen@polytechnique.org). Các nghiên cứu mới của nhóm có thể tìm thấy ở đây](https://sites.google.com/view/quangnguyenwebsite/publications).
+Đây là một bài giảng nhỏ về Khoa học Hệ phức hợp, một ngành nghiên cứu đa ngành tương đối mới và có nhiều tính ứng dụng. Bài giảng còn đang trong bản thảo nên có nhiều thiếu sót, xin vui lòng góp ý qua [email sau](quang.nguyen@polytechnique.org). Các nghiên cứu mới của nhóm có thể tìm thấy [ở đây](https://sites.google.com/view/quangnguyenwebsite/publications).
 
 Tài liệu bao gồm một số mã nguồn mở vẽ mạng lưới viết trên R cùng một số bộ dữ liệu mẫu [tại đây](https://github.com/EasyDataScience/complex-network-lecture). Vui lòng trích dẫn nguồn dữ liệu ở cuối chương.
 
