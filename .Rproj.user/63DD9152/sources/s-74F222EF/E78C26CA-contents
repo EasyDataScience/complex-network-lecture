@@ -203,7 +203,7 @@ plot(g1,vertex.size=0.5,vertex.frame.color=V(g1)$color,vertex.label = NA,vertex.
 ## BREAKDOWN SIMULATION ----
 # Attack network using 5 strategies: ID, IB, IWB, IS, RD, RB, RWB, RS and CondBet, CondWBet
 # E(g)$weight <- 1 # For unweighted NW
-df <- attack_network_intentional(str = "CondWBet", 1, g, return_graph = F, save_graph=F)
+df <- attack_network_intentional(str = "CondBet", 1, g, return_graph = F, save_graph=F)
 #df <- attack_network_intentional_step(str = "RB", step = 5, 1, g, return_graph = F)
 #df <- attack_network_random(20,0.05, 1, g, return_graph = F)
 
@@ -242,7 +242,7 @@ gtemp <- readRDS("sp500_1_RS/graph_temp_114.RData")
 gtemp <- readRDS("sp500_1_CondBet/graph_temp_210.RData")
 gtemp <- readRDS("sp500_2_RS/graph_temp_14.RData")
 gtemp <- readRDS("sp500_2_CondWBet/graph_temp_14.RData")
-gtemp <- readRDS("netscience_CondWBet/graph_temp_64.RData")
+gtemp <- readRDS("netscience_CondBet/graph_temp_64.RData")
 gtemp <- readRDS("~/Dropbox/Network/WeightedNetwork/WeightedNetwork/bitcoin_ID/graph_temp_960.RData")
 gtemp <- readRDS("bitcoin_CondBet/graph_temp_720.RData")
 gtemp <- readRDS("airport_RS/graph_temp_10.RData")
@@ -251,6 +251,7 @@ gtemp <- readRDS("airport_CondBet/graph_temp_40.RData")
 gtemp <- readRDS("netscience_RS/graph_temp_1440.RData")
 gtemp <- readRDS("airport_all_RD/graph_temp_952.RData")
 
+gtemp <- readRDS("netscience_CondBet_detail/graph_temp_32.RData")
 # Node color
 ncol <- rep("blue",length(V(gtemp)))
 weighted_betweeness <- betweenness(gtemp, v= V(gtemp), directed = FALSE, weights = 1/E(gtemp)$weight)
@@ -260,9 +261,17 @@ between <- betweenness(g_binary, v= V(g_binary), directed = FALSE, weights = NUL
 strength <- strength(gtemp, v = V(gtemp), mode = c("all"),loops = F)
 
 ncol[which.max(strength)] <- "red"
-ncol[which.max(weighted_betweeness)] <- "green"
-ncol[which.max(between)] <- "purple"
-#
+# ncol[which.max(weighted_betweeness)] <- "green"
+# ncol[which.max(between)] <- "purple"
+
+# link color
+#short.path
+link.weights <- E(gtemp)$weight
+link.weights.order <- sort(link.weights, decreasing = T, index.return = T)$ix
+ecol <- rep("gray", ecount(gtemp)) ##creating a color vector for all the edges with the color "grey50"; the ecount fucntion tells you how many edges the network has
+ecol[link.weights.order[1:3]] <- "green"
+
+# degree - binary betweenness - weighted betweenness scatter
 deg <- degree(gtemp)
 deg[which.max(weighted_betweeness)]  # 163
 deg[which.max(between)]  # 27
@@ -273,7 +282,7 @@ weighted_betweeness[which.max(between)]  # 27
 plot(between,weighted_betweeness,log='xy')
 
 library(ggnet)  # Manually increase the weight in igraph_to_network() if needed
-g1.plot <- ggnet2(igraph_to_network(gtemp), size = 0.5, node.color = ncol, edge.size = "weights")
+g1.plot <- ggnet2(igraph_to_network(gtemp), size = 0.5, node.color = ncol, edge.size = "weights", edge.color = ecol)
 g1.plot
 # Load igraph version
 detach(package:sna, unload=TRUE)

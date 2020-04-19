@@ -59,7 +59,7 @@ Dựa trên cấu trúc mạng lưới chúng ta có thể tính toán các phé
 ### Bậc và phân phối bậc
 Bậc ("degree") của một đỉnh $i$, ký hiệu $k_i$, là tổng số cạnh đi tới nó. Với một mạng không hướng thì có thể tính bậc mỗi đỉnh bởi tổng của hàng $i$ tương ứng của ma trận kề $A$: $k_i = \sum_{j = 1}^{n}a_{ij}$.
 
-Cũng với mạng không hướng, nếu có $m$ cạnh thì tổng số bậc của tất cả các đỉnh sẽ là $2m$. Ví dụ như với mạng 500 sân bay lớn nhất của Mỹ trong hình \@ref(eq:USairport) ta có các thông số sau:
+Cũng với mạng không hướng, nếu có $m$ cạnh thì tổng số bậc của tất cả các đỉnh sẽ là $2m$. Ví dụ như với mạng 500 sân bay lớn nhất của Mỹ trong chương trước ta có các thông số sau:
 
 ```{r echo = FALSE}
 library(knitr)

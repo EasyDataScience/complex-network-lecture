@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
+  <title>Chương 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta property="og:title" content="Chương 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
+  <meta name="twitter:title" content="Chương 3 Tính bền vững của mạng lưới | Giới thiệu về Hệ phức hợp và Khoa học mạng lưới" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -130,7 +130,7 @@
 
             <section class="normal" id="section-">
 <div id="tinh-bn-vng-cua-mang-lui" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Tính bền vững của mạng lưới</h1>
+<h1><span class="header-section-number">Chương 3</span> Tính bền vững của mạng lưới</h1>
 <p>Tính bền vững (“Robustness/Resilience”) của mạng lưới là tính chất được nghiên cứu đầu tiên nằm trong các chủ đề về các quá trình động lực. Do các Hệ phức hợp rất phổ biến trong thực tế, nghiên cứu về sự bền vững của chúng có ý nghĩa ứng dụng thực tế cao. Một số câu hỏi có thể giải đáp là:</p>
 <ul>
 <li>Mạng Internet có bền vững trước những sự cố hỏng hóc hay không? Nếu bị mất đi một số đỉnh (router) thì có thể hoạt động bình thường được không?</li>
@@ -150,17 +150,17 @@
 <li><p>Các thành phần có kích thước tuân theo phân bố nào?</p></li>
 </ol>
 <p>Hình vẽ sau thể hiện các điểm giao là các ô vuông:</p>
-<div class="figure" style="text-align: center">
+<div class="figure" style="text-align: center"><span id="fig:percolation2D"></span>
 <img src="images/percolation_2D.png" alt="Biểu diễn ví dụ thẩm thấu 2 chiều với các xác suất khác nhau và kích thước khác nhau" width="100%" />
 <p class="caption">
-(#fig:percolation_2D)Biểu diễn ví dụ thẩm thấu 2 chiều với các xác suất khác nhau và kích thước khác nhau
+Figure 3.1: Biểu diễn ví dụ thẩm thấu 2 chiều với các xác suất khác nhau và kích thước khác nhau
 </p>
 </div>
 <p>Có thể thấy ngay là với <span class="math inline">\(p\)</span> càng lớn thì kích thước của LCC càng lớn. Nhưng khác với trực giác chúng ta hình dung, kích thước của LCC sẽ không tăng một cách tuyến tính theo <span class="math inline">\(p\)</span>. Nếu mô phỏng với N rất lớn (tiến tới vô cùng), kích thước LCC <span class="math inline">\(L_{\infty}\)</span> sẽ gần bằng 0 với <span class="math inline">\(p\)</span> nhỏ, sau đó đột ngột tăng lên tại một điểm tới hạn gọi là <span class="math inline">\(p_c\)</span></p>
-<div class="figure" style="text-align: center">
+<div class="figure" style="text-align: center"><span id="fig:pc2D"></span>
 <img src="images/p_c_2D.png" alt="Thay đổi kích thước của LCC theo xác suất lấp đầy p, với N lớn. Nguồn: Kim Christensen - “Percolation Theory”" width="50%" />
 <p class="caption">
-(#fig:p_c_2D)Thay đổi kích thước của LCC theo xác suất lấp đầy p, với N lớn. Nguồn: Kim Christensen - “Percolation Theory”
+Figure 3.2: Thay đổi kích thước của LCC theo xác suất lấp đầy p, với N lớn. Nguồn: Kim Christensen - “Percolation Theory”
 </p>
 </div>
 <p>Sự thay đổi đột ngột ở điểm tới hạn là một sự <em>chuyển pha</em>. Ở đó, kích thước của LCC tăng đột ngột từ 0 lên giá trị tỷ lệ với kích thước của mạng. Một cách nhìn khác là: nếu mặt hồ có tỷ lệ đóng băng trên <span class="math inline">\(p_c\)</span> thì chúng ta có thể đi từ bờ này sang bờ kia.</p>
@@ -228,7 +228,7 @@ Cuối cùng điều kiện để tồn tại “giant component” là:
 <div class="figure" style="text-align: center"><span id="fig:bitcoinCondWBet720"></span>
 <img src="images/bitcoin_CondWBet_720.png" alt="Một mạng lưới không tồn tại 'giant component' với kappa &lt; 2" width="70%" />
 <p class="caption">
-Figure 3.1: Một mạng lưới không tồn tại ‘giant component’ với kappa &lt; 2
+Figure 3.3: Một mạng lưới không tồn tại ‘giant component’ với kappa &lt; 2
 </p>
 </div>
 </div>
@@ -265,7 +265,7 @@ Và điều kiện tới hạn có được từ :
 <div class="figure" style="text-align: center"><span id="fig:bitcoinRandom09"></span>
 <img src="images/bitcoin_initial_random.png" alt="Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 5404 đỉnh (90%) thì mạng còn lại vẫn tồn tại 'giant component'" width="100%" />
 <p class="caption">
-Figure 3.2: Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 5404 đỉnh (90%) thì mạng còn lại vẫn tồn tại ‘giant component’
+Figure 3.4: Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 5404 đỉnh (90%) thì mạng còn lại vẫn tồn tại ‘giant component’
 </p>
 </div>
 <p>Đa số các mạng lưới thực tế đều có tính bền vững cao trước những hỏng hóc/phá hủy có tính ngẫu nhiên như vậy. Mô hình trên có thể áp dụng được cho rất nhiều mạng thực tế và dự báo được tính bền vững trước những hỏng hóc ngẫu nhiên. Tuy nhiên tính bền vững của các mạng còn có thể được đánh giá ở góc độ khác như phần sau.</p>
@@ -311,7 +311,7 @@ sum_{k=\tilde{K}}^{\infty}P(k) - \frac{1}{N} = q
 <div class="figure" style="text-align: center"><span id="fig:bitcoinRandomRD"></span>
 <img src="images/bitcoin_attack_random_degree2.png" alt="Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 960 đỉnh (16%) ngẫu nhiên thìmạng vẫn tồn tại 'giant component' (b). Nhưng nếu phá hủy 960 đỉnh có số bậc cao nhất thì mạng lưới đã bị phá hủy về cơ bản (không tồn tại một thành phần liên kết nào có độ lớn đủ lớn)" width="100%" />
 <p class="caption">
-Figure 3.3: Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 960 đỉnh (16%) ngẫu nhiên thìmạng vẫn tồn tại ‘giant component’ (b). Nhưng nếu phá hủy 960 đỉnh có số bậc cao nhất thì mạng lưới đã bị phá hủy về cơ bản (không tồn tại một thành phần liên kết nào có độ lớn đủ lớn)
+Figure 3.5: Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá hủy 960 đỉnh (16%) ngẫu nhiên thìmạng vẫn tồn tại ‘giant component’ (b). Nhưng nếu phá hủy 960 đỉnh có số bậc cao nhất thì mạng lưới đã bị phá hủy về cơ bản (không tồn tại một thành phần liên kết nào có độ lớn đủ lớn)
 </p>
 </div>
 </div>
@@ -322,14 +322,14 @@ Figure 3.3: Mạng lưới bitcoin ban đầu gồm 6005 đỉnh, sau khi phá h
 <div class="figure" style="text-align: center"><span id="fig:NetAfterRemove"></span>
 <img src="images/NetAfterRemove.png" alt="Một mạng lưới tài chính bị phá hủy bởi chiến thuật phá vỡ nút có bậc cao nhất (hàng trên) và theo tính trung gian cao nhất (hàng dưới)" width="100%" />
 <p class="caption">
-Figure 3.4: Một mạng lưới tài chính bị phá hủy bởi chiến thuật phá vỡ nút có bậc cao nhất (hàng trên) và theo tính trung gian cao nhất (hàng dưới)
+Figure 3.6: Một mạng lưới tài chính bị phá hủy bởi chiến thuật phá vỡ nút có bậc cao nhất (hàng trên) và theo tính trung gian cao nhất (hàng dưới)
 </p>
 </div>
 <p>Hơn nữa, một chiến thuật phá vỡ có thể dựa trên nhiều đặc tính của nút. Ví dụ như trong [8] chúng tôi đề xuất phá vỡ theo tính trung gian trong giai đoạn đầu, sau đó chuyển sang bậc ở giai đoạn cuối khi mạng lưới bị phân mảnh thành các nhóm nhỏ tách biệt (khi đó tính trung gian không còn nhiều ý nghĩa toàn cục).</p>
 <div class="figure" style="text-align: center"><span id="fig:Netscience2step"></span>
 <img src="images/netscience_2_steps.png" alt="Mạng lưới cộng tác khoa học: ở giai đoạn đầu chiến thuật phá vỡ theo tính trung gian hiệu quả nhất khi phá vỡ từng thành phần lớn, ở giai đoạn cuối chỉ còn nhiều thành phần nhỏ thì chiến thuật phá vỡ theo bậc lại trở nên hiệu quả hơn. [8]" width="100%" />
 <p class="caption">
-Figure 3.5: Mạng lưới cộng tác khoa học: ở giai đoạn đầu chiến thuật phá vỡ theo tính trung gian hiệu quả nhất khi phá vỡ từng thành phần lớn, ở giai đoạn cuối chỉ còn nhiều thành phần nhỏ thì chiến thuật phá vỡ theo bậc lại trở nên hiệu quả hơn. [8]
+Figure 3.7: Mạng lưới cộng tác khoa học: ở giai đoạn đầu chiến thuật phá vỡ theo tính trung gian hiệu quả nhất khi phá vỡ từng thành phần lớn, ở giai đoạn cuối chỉ còn nhiều thành phần nhỏ thì chiến thuật phá vỡ theo bậc lại trở nên hiệu quả hơn. [8]
 </p>
 </div>
 <p>Ngoài ra, các yếu tố như trọng số, tính phân nhóm cũng được tính đến trong việc đánh giá tính bền vững của mạng lưới. Phá vỡ theo cạnh cũng được nghiên cứu và cho kết quả quan trọng. (to be continued)</p>

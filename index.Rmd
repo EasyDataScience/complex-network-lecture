@@ -18,9 +18,14 @@ biblio-style: apalike
 
 # Giới thiệu {#intro}
 
-Đây là một bài giảng nhỏ về Khoa học Hệ phức hợp, một ngành nghiên cứu đa ngành tương đối mới và có nhiều tính ứng dụng. Bài giảng còn đang trong bản thảo nên có nhiều thiếu sót, xin vui lòng góp ý về quang.nguyen@polytechnique.org. Các nghiên cứu mới của nhóm có thể tìm thấy ở đây](https://sites.google.com/view/quangnguyenwebsite/publications)
+Đây là một bài giảng nhỏ về Khoa học Hệ phức hợp, một ngành nghiên cứu đa ngành tương đối mới và có nhiều tính ứng dụng. Bài giảng còn đang trong bản thảo nên có nhiều thiếu sót, xin vui lòng góp ý qua [email sau](quang.nguyen@polytechnique.org). Các nghiên cứu mới của nhóm có thể tìm thấy ở đây](https://sites.google.com/view/quangnguyenwebsite/publications).
 
-Tài liệu bao gồm một số mã nguồn mở vẽ mạng lưới với ngôn ngữ R cùng một số bộ dữ liệu mẫu [tại đây](https://github.com/EasyDataScience/complex-network-lecture). Vui lòng trích dẫn nguồn dữ liệu ở cuối chương.
+Tài liệu bao gồm một số mã nguồn mở vẽ mạng lưới viết trên R cùng một số bộ dữ liệu mẫu [tại đây](https://github.com/EasyDataScience/complex-network-lecture). Vui lòng trích dẫn nguồn dữ liệu ở cuối chương.
+
+**Bản đồ khoa học Hệ phức hợp (Castellani Brian (2018))**
+```{r omplexityMap, fig.align = 'center', out.width = "100%", fig.cap = "Bản đồ khoa học Hệ phức hợp - nguồn: Castellani, Brian (2018) ['Map of the Complexity Sciences.'](http://www.art- sciencefactory.com/complexity-map_feb09.html) Art & Science Factory. ", echo = FALSE}
+knitr::include_graphics("images/complexity-map_Jan2018.jpg")
+```
 
 Stephen Hawking đã từng nói trong thế kỷ trước *"I think the next [21st] century will be the century of complexity. We have already discovered the basic laws] that govern matter and understand all the normal situations. We don’t know how the laws fit together, and what happens under extreme conditions. But I expect we will find a complete unified theory sometime this century. There is no limit to the complexity that we can build using those basic laws."* [nguồn](https://en.wikiquote.org/wiki/Complexity) Tạm dịch là:
 
@@ -91,9 +96,22 @@ Chính vì sự phổ biến và quan trọng của các hệ phức hợp, Khoa
 
 Nghiên cứu về Hệ phức hợp có thể chia thành hai nhánh nhỏ hơn:
 
-- Nghiên cứu về **cấu trúc** của hệ: thành phần, liên kết, phân bố tính chất, tính phân nhóm, sự biến đổi cấu trúc theo thời gian, hệ siêu lớn, biểu diễn hình ảnh,...
+* Nghiên cứu về **cấu trúc** của hệ: 
+    + Tính liên kết, phân bố liên kết, tương quan bậc
+    + Trọng số, phân bố trọng số
+    + Tính phân nhóm
+    + Sự biến đổi cấu trúc theo thời gian
+    + Mạng lưới siêu lớn (không xác định được kích thước)
+    + Biểu diễn hình ảnh
+    + ...
 
-- Nghiên cứu về **quá trình động lực** (dynamic process) diễn ra trong hệ: quá trình tan rã, phá vỡ, chuyển pha; quá trình lan truyền thông thông/dịch bệnh và điều khiển ngăn chặn; các quá trình chuyển pha và đột phát, mô phỏng và dự báo,...
+* Nghiên cứu về **quá trình động lực** (dynamic process) diễn ra trong hệ:
+    + Quá trình hình thành, xây dựng hệ
+    + Quá trình tan rã, phá hủy hệ
+    + Quá trình lan truyền thông thông/dịch bệnh và điều khiển ngăn chặn; 
+    + Các quá trình chuyển pha và đột phát
+    + Mô phỏng và dự báo,
+    + ...
 
 Hai nhánh này có thể kết hợp và bổ sung cho nhau: Hiểu cấu trúc sẽ mô tả tốt hơn các quá trình diễn ra trên hệ.
 

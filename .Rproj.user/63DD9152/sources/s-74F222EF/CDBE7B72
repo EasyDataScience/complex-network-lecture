@@ -7,13 +7,13 @@
     "folds" : "92|71|110|0|\n",
     "hash" : "0",
     "id" : "CDBE7B72",
-    "lastKnownWriteTime" : 1587279279,
-    "last_content_update" : 1587279280003,
+    "lastKnownWriteTime" : 1587280779,
+    "last_content_update" : 1587280779729,
     "path" : "~/Google Drive/WRITING/ComplexNetwork/01-intro.Rmd",
     "project_path" : "01-intro.Rmd",
     "properties" : {
-        "cursorPosition" : "248,0",
-        "scrollLine" : "240"
+        "cursorPosition" : "61,156",
+        "scrollLine" : "57"
     },
     "relative_order" : 5,
     "source_on_save" : false,
