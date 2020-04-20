@@ -47,9 +47,9 @@ knitr::include_graphics("images/internet2020.png")
 ## Các tính chất của hệ phức hợp
 Sự vận hành các hệ phức hợp có những tính chất đặc biệt như:
 
-- __Tính tiến hóa__: các phần tử của hệ khi tương tác với các phần tử khác có thể thay đổi hành vi của mình và thích ứng với môi trường.
+- __Tính thích nghi__: các phần tử của hệ khi tương tác với các phần tử khác có thể thay đổi hành vi của mình và thích ứng với môi trường.
 
-- __Tính đột phát__ (emergence): hệ có thể xuất hiện những hình dạng/cấu trúc và hành vi mới mà không thể đoán được nếu chỉ dựa trên các định luật cơ bản của phần tử thành phần hoặc chính.
+- __Tính đột sinh__ (emergence): hệ có thể xuất hiện những hình dạng/cấu trúc và hành vi mới mà không thể đoán được nếu chỉ dựa trên các định luật cơ bản của phần tử thành phần hoặc chính.
 
 - __Tính tự tổ chức__: khi biến đổi thích ứng, các phần tử có thể tương tác và hệ tự diễn biến về một trạng thái dừng (mà không cần bộ phận điều khiển trung tâm).
 
