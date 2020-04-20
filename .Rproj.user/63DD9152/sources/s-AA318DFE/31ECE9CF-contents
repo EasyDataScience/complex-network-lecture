@@ -47,21 +47,21 @@ knitr::include_graphics("images/internet2020.png")
 ## Các tính chất của hệ phức hợp
 Sự vận hành các hệ phức hợp có những tính chất đặc biệt như:
 
-- __Tính thích nghi__: các phần tử của hệ khi tương tác với các phần tử khác có thể thay đổi hành vi của mình và thích ứng với môi trường.
+- __Tính thích nghi__ (adapt): các phần tử của hệ khi tương tác với các phần tử khác có thể thay đổi hành vi của mình và thích ứng với môi trường.
+
+- __Tính tự tổ chức__ (self-organized): khi biến đổi thích ứng, các phần tử có thể tương tác và hệ tự diễn biến về một trạng thái dừng (mà không cần bộ phận điều khiển trung tâm).
 
 - __Tính đột sinh__ (emergence): hệ có thể xuất hiện những hình dạng/cấu trúc và hành vi mới mà không thể đoán được nếu chỉ dựa trên các định luật cơ bản của phần tử thành phần hoặc chính.
 
-- __Tính tự tổ chức__: khi biến đổi thích ứng, các phần tử có thể tương tác và hệ tự diễn biến về một trạng thái dừng (mà không cần bộ phận điều khiển trung tâm).
+- __Điểm hút__ (attractor): là những trạng thái mà hệ có thể tiến hóa đến mặc dù điều kiện ban đầu của thời điểm tiến hóa khác nhau.
 
-- __Điểm hút__: là những trạng thái mà hệ có thể tiến hóa đến mặc dù điều kiện ban đầu của thời điểm tiến hóa khác nhau.
+- __Tính hỗn loạn__ (chaos): là những biến đổi không dự đoán được và rất nhạy cảm với điều kiện ban đầu. Sự hỗn loạn này thường không kiểm soát được và phải mất một thời gian hệ mới ổn định lại. (Nhiều khi hệ phức hợp được hiểu nhầm là hệ hỗn loạn - chaotic system - dù hệ phức hợp có tính chất rộng hơn)
 
-- __Tính tự tổ chức quan trọng__: (self-organized criticality): có một số điểm hút mà hệ tự tiến hóa về và dừng lại, sau đó hệ diễn biến rất đột ngột với cường độ trải dài trong một khoảng rộng và **không đoán được**. Về dài hạn thì cường độ này tuân theo một phân bố phổ biến là luật hàm mũ.
-
-- __Tính hỗn loạn__(chaos): là những biến đổi không dự đoán được và rất nhạy cảm với điều kiện ban đầu. Sự hỗn loạn này thường không kiểm soát được và phải mất một thời gian hệ mới ổn định lại. (Nhiều khi hệ phức hợp được hiểu nhầm là hệ hỗn loạn - chaotic system - dù hệ phức hợp có tính chất rộng hơn)
-
-- __Tính phi tuyến__: rất nhiều biến đổi của hệ có tính phi tuyến và để dự báo được cần nhiều các thuật toán phi tuyến phức tạp và ứng dụng của xác suất.
+- __Tính tự tổ chức quan trọng__ (self-organized criticality): có một số điểm hút mà hệ tự tiến hóa về và dừng lại, sau đó hệ diễn biến rất đột ngột với cường độ trải dài trong một khoảng rộng và **không đoán được**. Về dài hạn thì cường độ này tuân theo một phân bố phổ biến là luật hàm mũ.
 
 - __Sự chuyển pha__: Tính tự tổ chức quan trọng là điểm xảy ra sự chuyển pha. Sự chuyển pha này thường diễn ra đột ngột, cường độ mạnh và có thể là quá trình không đảo ngược được. (Sự chuyển pha trong các hệ tự nhiên đã được nghiên cứu nhiều như nước đá tan thành nước,... và có thể vận dụng các kiến thức này nhưng sự chuyển pha trong các hệ phức hợp phức tạp hơn).
+
+- __Tính phi tuyến__: rất nhiều biến đổi của hệ có tính phi tuyến và để dự báo được cần nhiều các thuật toán phi tuyến phức tạp và các lý  xác suất.
 
 Bảng sau đây đưa ra một vài ví dụ về một số tính chất của ba hệ phức hợp tiêu biểu: mạng Internet (cần phân biệt với mạng WWW), một nền kinh tế và một bộ não sinh học.
 
